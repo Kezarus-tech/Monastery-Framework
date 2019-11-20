@@ -157,7 +157,7 @@ draw_panel(10, 10, round(wave(100, 300, 5, 0)), round(wave(50, 100, 6, 0)), c_wh
             <kind>1</kind>
             <string>///draw_set_font_ext &amp; draw_text_outline &amp; wave
 draw_set_font_ext( fntStandard, c_yellow, fa_center, fa_middle, 1 );
-//draw_text_outline( x, y, "Test#Multiline", -1, -1, c_white, wave(0.8, 1.2, 2, 0), 0, 1);
+draw_text_outline( x, y, "Test#Multiline", -1, -1, c_white, wave(0.8, 1.2, 2, 0), 0, 1);
 </string>
           </argument>
         </arguments>

@@ -20,8 +20,8 @@
   <width>27</width>
   <height>27</height>
   <frames>
-    <frame index="0">images\sprPanel2_0.png</frame>
-    <frame index="1">images\sprPanel2_1.png</frame>
-    <frame index="2">images\sprPanel2_2.png</frame>
+    <frame index="0">images\sprButton_0.png</frame>
+    <frame index="1">images\sprButton_1.png</frame>
+    <frame index="2">images\sprButton_2.png</frame>
   </frames>
 </sprite>

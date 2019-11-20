@@ -8,7 +8,8 @@
   <sprites name="sprites">
     <sprites name="Framework">
       <sprite>sprites\sprPanel</sprite>
-      <sprite>sprites\sprite1</sprite>
+      <sprite>sprites\sprButton</sprite>
+      <sprite>sprites\sprButtonPressed</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -43,6 +44,7 @@
   </objects>
   <rooms name="rooms">
     <rooms name="Framework">
+      <room>rooms\roomMainFramework</room>
       <room>rooms\roomTestGrounds</room>
     </rooms>
   </rooms>
