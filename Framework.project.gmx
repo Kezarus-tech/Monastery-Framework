@@ -3,6 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -10,6 +11,7 @@
       <sprite>sprites\sprPanel</sprite>
       <sprite>sprites\sprButton</sprite>
       <sprite>sprites\sprButtonPressed</sprite>
+      <sprite>sprites\sprIconCross</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -18,6 +20,7 @@
     <scripts name="Framework">
       <scripts name="UI">
         <script>scripts\draw_panel.gml</script>
+        <script>scripts\button_setup_collision.gml</script>
       </scripts>
       <scripts name="Util">
         <script>scripts\alert.gml</script>
@@ -37,14 +40,37 @@
   </fonts>
   <objects name="objects">
     <objects name="Framework">
+      <objects name="GUI">
+        <object>objects\objGUI</object>
+        <object>objects\objGUIButton</object>
+      </objects>
       <objects name="Test">
         <object>objects\objTest</object>
+      </objects>
+      <objects name="Demo">
+        <objects name="MainMenu">
+          <object>objects\objMainMenuController</object>
+          <object>objects\btnTestRoom</object>
+          <object>objects\btnMenuButtons</object>
+          <object>objects\btnMenuQuit</object>
+        </objects>
+        <objects name="Buttons">
+          <object>objects\objMenuButtonsController</object>
+          <object>objects\pnlMenuButtons</object>
+          <object>objects\btnMenuButtonsStandard</object>
+          <object>objects\btnMenuButtonsDisabled</object>
+          <object>objects\btnMenuButtonsStayPressed</object>
+          <object>objects\btnMenuButtonsToggled</object>
+          <object>objects\btnMenuButtonsClear</object>
+          <object>objects\btnMenuMain</object>
+        </objects>
       </objects>
     </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="Framework">
       <room>rooms\roomMainFramework</room>
+      <room>rooms\roomButtons</room>
       <room>rooms\roomTestGrounds</room>
     </rooms>
   </rooms>
