@@ -5,10 +5,24 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objGUI</parentName>
+  <parentName>objGUIPanel</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -36,8 +50,9 @@ enabled = true;
 stayPressed = false;
 toggled = false;
 
-buttonSprite = sprButton;
-buttonSpritePressed = sprButtonPressed;
+guiSprite = sprButton;
+guiSpritePressed = sprButtonPressed;
+depth = 0; //always above panels
 
 fontType = fntStandard;
 fontScale = 1;
@@ -64,19 +79,29 @@ pressedOffset = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///INTERNAL VARS &amp; SETUP COLISIONS
+            <string>///INTERNAL VARS
 buttonPressed = false;
-mouseOver = false;
 
-detectorPosSize = 0;
-
-button_setup_collision();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
     <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -94,10 +119,8 @@ button_setup_collision();
           <argument>
             <kind>1</kind>
             <string>///HOVER AND CLICK
-mouseOver = point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), buttonLeft, buttonTop, buttonRight, buttonBottom);
 
 if( enabled ){
-    image_blend = c_white;
     if( !mouseOver ){
         if( !stayPressed &amp;&amp; !toggled ){
             buttonPressed = false;
@@ -149,15 +172,15 @@ if( enabled ){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///SPRITE &amp; COLLISION SETUP
+            <string>///SPRITE
 
 if(!buttonPressed){
-    sprite_index = buttonSprite;
+    sprite_index = guiSprite;
 }else{
-    sprite_index = buttonSpritePressed;
+    sprite_index = guiSpritePressed;
 }
 
-button_setup_collision();
+
 </string>
           </argument>
         </arguments>
@@ -217,28 +240,17 @@ to get the sounds and other behaviors
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>604</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///DRAW BUTTON
-draw_nineslice_tiled( sprite_index, buttonLeft, buttonTop, buttonRight, buttonBottom, image_blend, image_alpha, 1 );
-
-
-
-</string>
-          </argument>
-        </arguments>
       </action>
       <action>
         <libid>1</libid>

@@ -3,9 +3,9 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>100</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objGUI</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,8 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///alert("Test", 5);
-alert("Test", 5);
+            <string>///CUSTOMIZEABLE VARIABLES
+
+width = 200;
+height = 50;
+
+guiSprite = sprPanel;
+sprite_index = guiSprite;
+image_blend = c_ltgray;
+
+depth = 100; //always below the buttons
 </string>
           </argument>
         </arguments>
@@ -47,72 +55,19 @@ alert("Test", 5);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///chance x20
+            <string>///INTERNAL VARS &amp; SETUP COLISIONS
 
-repeat(20){
-    if(chance(0.1)){
-        alert("chance 10%");
-    }
-}
+mouseOver = false;
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///string_split()
-var str = "abc*def*ghi";
-var arr = string_split(str, "*");
+detectorPosSize = 0;
 
-for( var i=0; i&lt;array_length_1d(arr); i++ ){
-    alert("array["+string(i)+"]" + arr[i] );
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///x, y
-
-x = room_width div 2;
-y = room_height div 2;
-
+gui_setup_collision();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -129,9 +84,66 @@ y = room_height div 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///draw_set_font_ext &amp; draw_text_outline &amp; wave
-draw_set_font_ext( fntStandard, c_yellow, fa_center, fa_middle, 1 );
-draw_text_outline( x, y, "Test#Multiline", -1, -1, c_white, wave(0.8, 1.2, 2, 0), 0, 1);
+            <string>///MOUSE OVER &amp; BLEND
+mouseOver = point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), buttonLeft, buttonTop, buttonRight, buttonBottom);
+
+if(mouseOver){
+    image_blend = c_white;
+}else{
+    image_blend = c_ltgray;
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///COLLISION SETUP
+
+gui_setup_collision();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DRAW FRAME
+draw_nineslice_tiled( sprite_index, buttonLeft, buttonTop, buttonRight, buttonBottom, image_blend, image_alpha, 1 );
+
+
+
 </string>
           </argument>
         </arguments>

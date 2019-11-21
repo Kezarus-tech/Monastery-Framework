@@ -19,8 +19,7 @@
   <scripts name="scripts">
     <scripts name="Framework">
       <scripts name="UI">
-        <script>scripts\draw_panel.gml</script>
-        <script>scripts\button_setup_collision.gml</script>
+        <script>scripts\gui_setup_collision.gml</script>
       </scripts>
       <scripts name="Util">
         <script>scripts\alert.gml</script>
@@ -42,6 +41,7 @@
     <objects name="Framework">
       <objects name="GUI">
         <object>objects\objGUI</object>
+        <object>objects\objGUIPanel</object>
         <object>objects\objGUIButton</object>
       </objects>
       <objects name="Test">
