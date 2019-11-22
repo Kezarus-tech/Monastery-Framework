@@ -28,6 +28,8 @@
             <string>///CREATE PANELS
 
 instance_create(10, 30, pnlMenuButtons);
+
+instance_create(260, 30, pnlMenuCheckbox);
 </string>
           </argument>
         </arguments>

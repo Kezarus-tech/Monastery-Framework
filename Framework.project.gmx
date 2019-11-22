@@ -11,7 +11,9 @@
       <sprite>sprites\sprPanel</sprite>
       <sprite>sprites\sprButton</sprite>
       <sprite>sprites\sprButtonPressed</sprite>
+      <sprite>sprites\sprCheckButton</sprite>
       <sprite>sprites\sprIconCross</sprite>
+      <sprite>sprites\sprIconCircle</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -19,6 +21,7 @@
   <scripts name="scripts">
     <scripts name="Framework">
       <scripts name="UI">
+        <script>scripts\gui_is_mouse_over.gml</script>
         <script>scripts\gui_setup_collision.gml</script>
       </scripts>
       <scripts name="Util">
@@ -43,6 +46,8 @@
         <object>objects\objGUI</object>
         <object>objects\objGUIPanel</object>
         <object>objects\objGUIButton</object>
+        <object>objects\objGUICheckbox</object>
+        <object>objects\objGUIRadiobutton</object>
       </objects>
       <objects name="Test">
         <object>objects\objTest</object>
@@ -63,6 +68,8 @@
           <object>objects\btnMenuButtonsToggled</object>
           <object>objects\btnMenuButtonsClear</object>
           <object>objects\btnMenuMain</object>
+          <object>objects\pnlMenuCheckbox</object>
+          <object>objects\pnlMenuRadiobutton</object>
         </objects>
       </objects>
     </objects>

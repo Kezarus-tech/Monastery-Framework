@@ -41,62 +41,41 @@
             <kind>1</kind>
             <string>///SETUP &amp; CREATE BUTTONS
 var offset = 20;
-var btnWidth = 200;
-var btnHeight = 40;
-var btnOffset = 5;
+var elementWidth = 140;
+var elementHeight = sprite_get_height(sprCheckButton);
+var offset = 5;
 
-width = (offset*2) + btnWidth;
-height = (offset*2) + btnHeight + ((btnHeight+btnOffset) * 7);
-//drawn from the center
-x += (width div 2);
-y += (height div 2);
+width = (offset*3) + (elementWidth*2);
+height = offset + ((elementHeight+offset) * 3);
 
-var wx = x; //middle of panel
-var wy = y  - (height / 2) + offset + (btnHeight / 2);
+
+var wx = x + offset - elementWidth + sprite_get_xoffset(sprCheckButton);
+var wy = y + offset - (height / 2) + sprite_get_yoffset(sprCheckButton);
 var inst;
 
-inst = instance_create(wx, wy, btnMenuButtonsStandard);
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = instance_create(wx, wy, objGUIRadiobutton);
+inst.text = "Group 1"
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsDisabled);
-inst.width = btnWidth;
-inst.height = btnHeight;
+wy += elementHeight + offset;
+inst = instance_create(wx, wy, objGUIRadiobutton);
+inst.text = "Group 2"
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsStayPressed);
-inst.width = btnWidth;
-inst.height = btnHeight;
+wy += elementHeight + offset;
+inst = instance_create(wx, wy, objGUIRadiobutton);
+inst.text = "Group 3"
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsToggled);
-inst.text = "Toggled 1";
-inst.width = btnWidth;
-inst.height = btnHeight;
+wx = x + (offset*2);
+wy = y + offset - (height / 2) + sprite_get_yoffset(sprCheckButton);
+inst = instance_create(wx, wy, objGUIRadiobutton);
+inst.text = "Group 4"
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsToggled);
-inst.text = "Toggled 2";
-inst.width = btnWidth;
-inst.height = btnHeight;
+wy += elementHeight + offset;
+inst = instance_create(wx, wy, objGUIRadiobutton);
+inst.text = "Group 5"
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsToggled);
-inst.text = "Toggled 3";
-inst.width = btnWidth;
-inst.height = btnHeight;
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsClear);
-inst.width = btnWidth;
-inst.height = btnHeight;
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuMain);
-inst.width = btnWidth;
-inst.height = btnHeight;
-
+wy += elementHeight + offset;
+inst = instance_create(wx, wy, objGUIRadiobutton);
+inst.text = "Group 6"
 
 </string>
           </argument>

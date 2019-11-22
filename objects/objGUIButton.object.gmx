@@ -303,9 +303,9 @@ if( text != "" ){
     draw_set_font_ext(fontType, fontColor, fa_center, fa_middle, 1);
     
     if( buttonPressed ){
-        draw_text_outline( buttonX, buttonY, text, -1, 1000, c_black, fontScale );
+        draw_text_outline( buttonX, buttonY+pressedOffset, text, -1, 1000, c_black, fontScale );
     }else{
-        draw_text_outline( buttonX, buttonY-pressedOffset, text, -1, 1000, c_black, fontScale );
+        draw_text_outline( buttonX, buttonY, text, -1, 1000, c_black, fontScale );
     }
 }
 
