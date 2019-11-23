@@ -31,10 +31,10 @@ width = 200;
 height = 50;
 
 guiSprite = sprPanel;
-sprite_index = guiSprite;
-image_blend = c_ltgray;
 
 depth = 100; //always below the buttons
+
+origin = "TOPLEFT"; // TOPLEFT or CENTER
 </string>
           </argument>
         </arguments>
@@ -58,8 +58,11 @@ depth = 100; //always below the buttons
             <string>///INTERNAL VARS &amp; SETUP COLISIONS
 
 detectorPosSize = 0;
+sprite_index = guiSprite;
+image_blend = c_ltgray;
+mySeed = irandom(50000);
 
-gui_setup_collision();
+gui_setup_collision(origin);
 </string>
           </argument>
         </arguments>
@@ -114,7 +117,7 @@ if(mouseOver){
             <kind>1</kind>
             <string>///COLLISION SETUP
 
-gui_setup_collision();
+gui_setup_collision(origin);
 </string>
           </argument>
         </arguments>
@@ -138,10 +141,33 @@ gui_setup_collision();
           <argument>
             <kind>1</kind>
             <string>///DRAW FRAME
-draw_nineslice_tiled( sprite_index, buttonLeft, buttonTop, buttonRight, buttonBottom, image_blend, image_alpha, 1 );
+draw_nineslice_tiled( sprite_index, buttonLeft, buttonTop, buttonRight, buttonBottom, image_blend, image_alpha, mySeed );
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DON'T DRAW
 </string>
           </argument>
         </arguments>

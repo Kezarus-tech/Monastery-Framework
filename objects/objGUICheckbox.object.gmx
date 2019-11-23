@@ -47,7 +47,7 @@ guiSprite = sprCheckButton;
 guiSpritePressed = sprCheckButton;
 
 enabled = true;
-textOffset = 10;
+textOffset = 5;
 </string>
           </argument>
         </arguments>
@@ -73,6 +73,8 @@ width = sprite_width;
 height = sprite_height;
 
 toggled = true;
+
+origin = "TOPLEFT"; //always top left
 </string>
           </argument>
         </arguments>
@@ -96,9 +98,13 @@ toggled = true;
           <argument>
             <kind>1</kind>
             <string>///DRAW SELF &amp; ICON
-draw_self();
+
+draw_sprite_ext(sprite_index, 0, buttonX, buttonY, 1, 1, 0, image_blend, image_alpha);
+
 if( buttonPressed ){
-    draw_sprite(icon, 0, buttonX, buttonY);
+    draw_sprite(icon, 0, 
+        buttonX + (sprite_width div 2) - (sprite_get_width(icon) div 2), 
+        buttonY + (sprite_height div 2) - (sprite_get_height(icon) div 2));
 }
 
 
@@ -128,8 +134,8 @@ if( text != "" ){
     draw_set_font_ext(fontType, fontColor, fa_left, fa_middle, 1);
 
     draw_text_outline( 
-        buttonX - sprite_xoffset + sprite_width + textOffset, 
-        buttonY, text, -1, 1000, c_black, fontScale );
+        buttonX + sprite_width + textOffset, 
+        buttonY + (sprite_height div 2), text, -1, 1000, c_black, fontScale );
 }
 
 

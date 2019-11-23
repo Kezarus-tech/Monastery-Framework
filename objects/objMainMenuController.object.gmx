@@ -41,16 +41,19 @@ wy = hh div 4; // a quarter of the screen
 inst = instance_create(wx, wy, btnTestRoom);
 inst.width = btnWidth;
 inst.height = btnHeight;
+inst.origin = "CENTER";
 
 wy += btnHeight + btnOffset;
 inst = instance_create(wx, wy, btnMenuButtons);
 inst.width = btnWidth;
 inst.height = btnHeight;
+inst.origin = "CENTER";
 
 wy += btnHeight + btnOffset;
 inst = instance_create(wx, wy, btnMenuQuit);
 inst.width = btnWidth;
 inst.height = btnHeight;
+inst.origin = "CENTER";
 </string>
           </argument>
         </arguments>

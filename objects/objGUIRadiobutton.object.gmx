@@ -48,7 +48,7 @@ guiSprite = sprCheckButton;
 guiSpritePressed = sprCheckButton;
 
 enabled = true;
-textOffset = 10;
+textOffset = 5;
 </string>
           </argument>
         </arguments>

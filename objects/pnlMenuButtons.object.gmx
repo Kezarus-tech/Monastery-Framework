@@ -47,12 +47,9 @@ var btnOffset = 5;
 
 width = (offset*2) + btnWidth;
 height = (offset*2) + btnHeight + ((btnHeight+btnOffset) * 7);
-//drawn from the center
-x += (width div 2);
-y += (height div 2);
 
-var wx = x; //middle of panel
-var wy = y  - (height / 2) + offset + (btnHeight / 2);
+var wx = x + offset;
+var wy = y + offset;
 var inst;
 
 inst = instance_create(wx, wy, btnMenuButtonsStandard);

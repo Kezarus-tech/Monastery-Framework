@@ -8,12 +8,16 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Framework">
-      <sprite>sprites\sprPanel</sprite>
-      <sprite>sprites\sprButton</sprite>
-      <sprite>sprites\sprButtonPressed</sprite>
-      <sprite>sprites\sprCheckButton</sprite>
-      <sprite>sprites\sprIconCross</sprite>
-      <sprite>sprites\sprIconCircle</sprite>
+      <sprite>sprites\sprFrameworkName</sprite>
+      <sprites name="GUI">
+        <sprite>sprites\sprPanel</sprite>
+        <sprite>sprites\sprButton</sprite>
+        <sprite>sprites\sprButtonPressed</sprite>
+        <sprite>sprites\sprInputText</sprite>
+        <sprite>sprites\sprCheckButton</sprite>
+        <sprite>sprites\sprIconCross</sprite>
+        <sprite>sprites\sprIconCircle</sprite>
+      </sprites>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -46,6 +50,7 @@
         <object>objects\objGUI</object>
         <object>objects\objGUIPanel</object>
         <object>objects\objGUIButton</object>
+        <object>objects\objGUIInputText</object>
         <object>objects\objGUICheckbox</object>
         <object>objects\objGUIRadiobutton</object>
       </objects>
