@@ -17,6 +17,8 @@
         <sprite>sprites\sprCheckButton</sprite>
         <sprite>sprites\sprIconCross</sprite>
         <sprite>sprites\sprIconCircle</sprite>
+        <sprite>sprites\sprSliderBar</sprite>
+        <sprite>sprites\sprSlider</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -53,6 +55,7 @@
         <object>objects\objGUIInputText</object>
         <object>objects\objGUICheckbox</object>
         <object>objects\objGUIRadiobutton</object>
+        <object>objects\objGUISlider</object>
       </objects>
       <objects name="Test">
         <object>objects\objTest</object>
@@ -75,6 +78,7 @@
           <object>objects\btnMenuMain</object>
           <object>objects\pnlMenuCheckbox</object>
           <object>objects\pnlMenuRadiobutton</object>
+          <object>objects\pnlMenuSliders</object>
         </objects>
       </objects>
     </objects>

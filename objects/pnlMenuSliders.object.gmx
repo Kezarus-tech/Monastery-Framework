@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>100</depth>
+  <depth>0</depth>
   <persistent>0</persistent>
   <parentName>objGUIPanel</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -40,47 +40,98 @@
           <argument>
             <kind>1</kind>
             <string>///SETUP &amp; CREATE BUTTONS
-var elementWidth = 130;
+var elementWidth = 100;
 var elementHeight = 35;
 var elementOffset = 5;
 var offset = 20;
 
 width =  (offset*2) + (elementWidth*2);
-height = (offset*2) + (elementOffset*1) + (elementHeight*3);
+height = pnlMenuButtons.height;
 
 var wx = x + offset;
 var wy = y + offset;
 var inst;
 
-inst = instance_create(wx, wy, objGUIRadiobutton);
-inst.text = "Group 1";
+inst = instance_create(wx, wy, objGUISlider);
+inst.width = elementWidth*2;
 
 wy += elementHeight + elementOffset;
-inst = instance_create(wx, wy, objGUIRadiobutton);
-inst.text = "Group 2";
+inst = instance_create(x + width - offset - (elementWidth*1.5), wy, objGUISlider);
+inst.width = elementWidth * 1.5;
+inst.drawValuePercent = "LEFT";
+inst.height = 20;
+inst.widthSlider = 20;
+inst.heightSlider = 16;
+inst.valueSetOnLoad = 25;
 
 wy += elementHeight + elementOffset;
-inst = instance_create(wx, wy, objGUIRadiobutton);
-inst.text = "Group 3";
+inst = instance_create(wx, wy, objGUISlider);
+inst.width = elementWidth * 1.5;
+inst.drawValuePercent = "RIGHT";
+inst.height = 6;
+inst.widthSlider = 10;
+inst.heightSlider = 20;
+inst.valueSetOnLoad = 50;
 
-wx = x + offset + elementWidth;
-wy = y + offset;
-inst = instance_create(wx, wy, objGUIRadiobutton);
-inst.text = "Group 4";
+wy += (elementHeight + elementOffset) * 1.5;
+inst = instance_create(wx, wy, objGUISlider);
+inst.width = elementWidth * 1;
+inst.drawValuePercent = "TOP";
+inst.valueSetOnLoad = 75;
+
+inst = instance_create(wx + elementWidth + elementOffset, wy, objGUISlider);
+inst.width = elementWidth;
+inst.drawValuePercent = "BOTTOM";
+inst.valueSetOnLoad = 100;
 
 wy += elementHeight + elementOffset;
-inst = instance_create(wx, wy, objGUIRadiobutton);
-inst.text = "Group 5";
+inst = instance_create(wx, wy, objGUISlider);
+inst.orientation = "VERTICAL";
+inst.drawValuePercent = "RIGHT";
+inst.height = elementWidth * 1.8;
+inst.width = 10;
+inst.widthSlider = 24;
+inst.heightSlider = 10;
 
-wy += elementHeight + elementOffset;
-inst = instance_create(wx, wy, objGUIRadiobutton);
-inst.text = "Group 6";
+wx += 60;
+inst = instance_create(wx, wy + (elementWidth * 0.3), objGUISlider);
+inst.orientation = "VERTICAL";
+inst.drawValuePercent = "TOP";
+inst.height = elementWidth * 1.5;
+inst.width = 10;
+inst.widthSlider = 24;
+inst.heightSlider = 10;
+inst.valueSetOnLoad = 33;
 
-wx = x;
-wy = y + height + offset;
-inst = instance_create(wx, wy, objGUIInputText);
-inst.text = "Type text here"
-inst.width = width;
+wx += 60;
+inst = instance_create(wx, wy, objGUISlider);
+inst.orientation = "VERTICAL";
+inst.drawValuePercent = "BOTTOM";
+inst.height = elementWidth * 1.5;
+inst.width = 10;
+inst.widthSlider = 24;
+inst.heightSlider = 10;
+inst.valueSetOnLoad = 66;
+
+wx += 60;
+inst = instance_create(wx, wy, objGUISlider);
+inst.orientation = "VERTICAL";
+inst.drawValuePercent = "LEFT";
+inst.height = elementWidth * 1.8;
+inst.width = 20;
+inst.widthSlider = 16;
+inst.heightSlider = 20;
+inst.valueSetOnLoad = 100;
+
+
+
+
+
+
+
+
+
+
 
 
 </string>

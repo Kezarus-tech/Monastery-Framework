@@ -81,6 +81,9 @@ inst.text = "Option 6"
 ///CREATE OTHER PANEL
 inst = instance_create(x, y+height+10, pnlMenuRadiobutton);
 
+///CREATE ANOTHER PANEL
+inst = instance_create(x+width+10, y, pnlMenuSliders);
+
 
 </string>
           </argument>
