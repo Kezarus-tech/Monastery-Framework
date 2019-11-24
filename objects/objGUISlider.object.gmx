@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objGUIButton</parentName>
+  <parentName>objGUIPanel</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -59,7 +59,7 @@ orientation = "HORIZONTAL"; //HORIZONTAL or VERTICAL
 
 //Percentual value of the current cursor
 valuePercent = 0;
-valueSetOnLoad = -1;
+valueSetOnLoad = -1; // percentual
 valueDrawPosition = ""; //"", TOP, BOTTOM, LEFT, RIGHT
 valuePrefixText = "";
 valuePosfixText = "";
@@ -103,6 +103,8 @@ valueFullText = ""; // full text to draw
 valueFinal = -1; // the actual value calculated using valueMin and valueMax
 alarm[0] = 1; // slider initializer
 slider = noone;
+
+buttonPressed = false;
 
 gui_setup_collision(origin);
 </string>
@@ -152,10 +154,7 @@ instance_destroy(slider);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///INITIALIZER
-
-guiSpritePressed = guiSprite;
-sprite_index = guiSprite;
+            <string>///LOCAL INITIALIZER
 
 if( orientation == "HORIZONTAL" ){
     slider = instance_create(buttonX + (widthSlider div 2), buttonY+(height div 2), objGUIPanel);
@@ -165,11 +164,9 @@ if( orientation == "HORIZONTAL" ){
 
 slider.origin = "CENTER";
 slider.guiSprite = guiSpriteSlider;
-slider.sprite_index = slider.guiSprite;
 slider.width = widthSlider;
 slider.height = heightSlider;
 slider.depth = depth-1;
-with(slider){ gui_setup_collision(origin); }
 
 visible = true;
 </string>
@@ -236,6 +233,20 @@ event_perform(ev_other, ev_user1);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
     </event>
     <event eventtype="3" enumb="1">
       <action>
@@ -278,6 +289,53 @@ if(buttonPressed){
     // Update percent value
     event_perform(ev_other, ev_user1);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///CLICK AND DRAG DETECTION
+if( mouseOver ){
+    if( mouse_check_button_pressed(mb_left) ){
+        buttonPressed = true;
+    }
+}
+
+if( mouse_check_button_released(mb_left) ){
+    buttonPressed = false;
+}
+
 </string>
           </argument>
         </arguments>

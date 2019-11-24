@@ -10,6 +10,10 @@
     <sprites name="Framework">
       <sprite>sprites\sprFrameworkName</sprite>
       <sprites name="GUI">
+        <sprites name="Makeshift">
+          <sprite>sprites\sprMakeshiftBrown</sprite>
+          <sprite>sprites\sprMakeshiftGray</sprite>
+        </sprites>
         <sprite>sprites\sprPanel</sprite>
         <sprite>sprites\sprButton</sprite>
         <sprite>sprites\sprButtonPressed</sprite>
@@ -27,6 +31,7 @@
   <scripts name="scripts">
     <scripts name="Framework">
       <scripts name="UI">
+        <script>scripts\draw_nineslice_tiled.gml</script>
         <script>scripts\gui_is_mouse_over.gml</script>
         <script>scripts\gui_setup_collision.gml</script>
       </scripts>
@@ -34,7 +39,6 @@
         <script>scripts\alert.gml</script>
         <script>scripts\chance.gml</script>
         <script>scripts\draw_nineslice.gml</script>
-        <script>scripts\draw_nineslice_tiled.gml</script>
         <script>scripts\draw_set_font_ext.gml</script>
         <script>scripts\draw_text_outline.gml</script>
         <script>scripts\string_split.gml</script>
@@ -65,6 +69,7 @@
           <object>objects\objMainMenuController</object>
           <object>objects\btnTestRoom</object>
           <object>objects\btnMenuButtons</object>
+          <object>objects\btnMenuEasyGUI</object>
           <object>objects\btnMenuQuit</object>
         </objects>
         <objects name="Buttons">
@@ -80,6 +85,10 @@
           <object>objects\pnlMenuRadiobutton</object>
           <object>objects\pnlMenuSliders</object>
         </objects>
+        <objects name="Easy GUI">
+          <object>objects\objGUIEasyPanel</object>
+          <object>objects\objGUIEasyButton</object>
+        </objects>
       </objects>
     </objects>
   </objects>
@@ -88,6 +97,7 @@
       <room>rooms\roomMainFramework</room>
       <room>rooms\roomButtons</room>
       <room>rooms\roomTestGrounds</room>
+      <room>rooms\roomEasyGUI</room>
     </rooms>
   </rooms>
   <help>

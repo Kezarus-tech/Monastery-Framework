@@ -23,6 +23,13 @@ if( argument_count > 7 ){
         random_set_seed(wRandom);
     }
 }
+
+//Safe guard
+if( sprite == -1 ){
+    return 0;
+}
+
+
 var wSprNumber = sprite_get_number(sprite)-1;
 
 var slice_width = sprite_get_width(sprite)/3;

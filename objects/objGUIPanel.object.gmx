@@ -55,14 +55,101 @@ origin = "TOPLEFT"; // TOPLEFT or CENTER
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///INTERNAL VARS &amp; SETUP COLISIONS
+            <string>///INTERNAL VARS &amp; INITIALIZER
 
 detectorPosSize = 0;
-sprite_index = guiSprite;
 image_blend = c_ltgray;
 mySeed = irandom(50000);
 
+//BASIC VARS
+buttonX         = 0;
+buttonY         = 0;
+buttonLeft      = 0;
+buttonRight     = 0;
+buttonTop       = 0;
+buttonBottom    = 0;
+
+///INITIALIZER
+alarm[0] = 1;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///--THIS WORKS AS A CONSTRUCTOR---
+
+//always pace as last on inherited objects
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///EASY GUI
+
+//Spot differences on scaling done on room editor and apply
+//as width and height
+if( sprite_exists(sprite_index) ){
+    if( image_xscale != 1 || image_yscale != 1 ){
+        width = bbox_right - bbox_left;
+        height = bbox_bottom - bbox_top;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DO INITIALIZE
 gui_setup_collision(origin);
+sprite_index = guiSprite;
 </string>
           </argument>
         </arguments>

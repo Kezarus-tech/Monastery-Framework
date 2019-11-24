@@ -25,58 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CREATE BUTTONS ON THE SCREEN
-var a = application_get_position();
-//var xx = a[0];
-//var yy = a[1];
-var ww = a[2] - a[0];
-var hh = a[3] - a[1];
+            <string>alert("2-Create event");
 
-btnWidth = 100;
-btnHeight = 40;
-btnOffset = 5;
-wx = ww div 2; //middle of the screen
-wy = hh div 4; // a quarter of the screen
+alert("2-Assign variables");
+look = 1;
 
-inst = instance_create(wx, wy, btnTestRoom);
-inst.width = btnWidth;
-inst.height = btnHeight;
-inst.origin = "CENTER";
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtons);
-inst.width = btnWidth;
-inst.height = btnHeight;
-inst.origin = "CENTER";
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuEasyGUI);
-inst.width = btnWidth;
-inst.height = btnHeight;
-inst.origin = "CENTER";
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuQuit);
-inst.width = btnWidth;
-inst.height = btnHeight;
-inst.origin = "CENTER";
+alert("2-Exit create event");
 </string>
           </argument>
         </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
   </events>
