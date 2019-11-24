@@ -60,7 +60,12 @@ orientation = "HORIZONTAL"; //HORIZONTAL or VERTICAL
 //Percentual value of the current cursor
 valuePercent = 0;
 valueSetOnLoad = -1;
-drawValuePercent = ""; //"", TOP, BOTTOM, LEFT, RIGHT
+valueDrawPosition = ""; //"", TOP, BOTTOM, LEFT, RIGHT
+valuePrefixText = "";
+valuePosfixText = "";
+valueMin = 0;
+valueMax = 100;
+
 fontType = fntStandard;
 fontScale = 1;
 fontColor = c_yellow;
@@ -94,6 +99,8 @@ depth = 0; //always above panels
 origin = "TOPLEFT"; // always TOPLEFT
 text = "";
 
+valueFullText = ""; // full text to draw
+valueFinal = -1; // the actual value calculated using valueMin and valueMax
 alarm[0] = 1; // slider initializer
 slider = noone;
 
@@ -151,17 +158,16 @@ guiSpritePressed = guiSprite;
 sprite_index = guiSprite;
 
 if( orientation == "HORIZONTAL" ){
-    slider = instance_create(buttonX + (widthSlider div 2), buttonY+(height div 2), objGUIButton);
+    slider = instance_create(buttonX + (widthSlider div 2), buttonY+(height div 2), objGUIPanel);
 }else{
-    slider = instance_create(buttonX + (width div 2), buttonY+(heightSlider div 2), objGUIButton);
+    slider = instance_create(buttonX + (width div 2), buttonY+(heightSlider div 2), objGUIPanel);
 }
 
 slider.origin = "CENTER";
 slider.guiSprite = guiSpriteSlider;
-slider.guiSpritePressed = guiSpriteSlider;
+slider.sprite_index = slider.guiSprite;
 slider.width = widthSlider;
 slider.height = heightSlider;
-slider.text = "";
 slider.depth = depth-1;
 with(slider){ gui_setup_collision(origin); }
 
@@ -201,6 +207,31 @@ if( valueSetOnLoad != -1 ){
         slider.y = buttonY + (((realEndY-realIniY)*(valuePercent/100))+realIniY);
     }
 }
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///UPDATE FINAL VALUE
+
+event_perform(ev_other, ev_user1);
 </string>
           </argument>
         </arguments>
@@ -269,20 +300,22 @@ if(buttonPressed){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///UPDATE VALUE PERCENT
+            <string>///UPDATE VALUE PERCENT &amp; FINAL
 if(orientation == "HORIZONTAL" ){
-    var relativePosition = slider.buttonX-buttonX;
+    var relativePosition = slider.x-x;
     var realIniX = (slider.width div 2);
     var realEndX = width - (slider.width div 2);
     
     valuePercent = ((relativePosition-realIniX)*100)/(realEndX-realIniX);
 }else{
-    var relativePosition = slider.buttonY-buttonY;
+    var relativePosition = slider.y-y;
     var realIniY = (slider.height div 2);
     var realEndY = height - (slider.height div 2);
     
     valuePercent = ((relativePosition-realIniY)*100)/(realEndY-realIniY);
 }
+
+valueFinal = ((valueMax-valueMin)*(valuePercent/100))+valueMin;
 
 </string>
           </argument>
@@ -320,31 +353,36 @@ if(orientation == "HORIZONTAL" ){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///DRAW VALUE PERCENT
-if(drawValuePercent == "TOP" ){
+            <string>///DRAW VALUE FINAL
+
+if(valueDrawPosition != ""){
+    valueFullText = valuePrefixText + string(round(valueFinal)) + valuePosfixText;
+}
+
+if(valueDrawPosition == "TOP" ){
     draw_set_font_ext(fontType, fontColor, fa_center, fa_bottom, 1);
     draw_text_outline(
         buttonX + (width div 2), 
         buttonY - 5, 
-        round(valuePercent), -1, 1000, c_black, fontScale);
-}else if(drawValuePercent == "BOTTOM" ){
+        valueFullText, -1, 1000, c_black, fontScale);
+}else if(valueDrawPosition == "BOTTOM" ){
     draw_set_font_ext(fontType, fontColor, fa_center, fa_top, 1);
     draw_text_outline(
         buttonX + (width div 2), 
         buttonY + height + 5, 
-        round(valuePercent), -1, 1000, c_black, fontScale);
-}else if(drawValuePercent == "LEFT" ){
+        valueFullText, -1, 1000, c_black, fontScale);
+}else if(valueDrawPosition == "LEFT" ){
     draw_set_font_ext(fontType, fontColor, fa_right, fa_middle, 1);
     draw_text_outline(
         buttonX - 5, 
         buttonY + (height div 2),
-        round(valuePercent), -1, 1000, c_black, fontScale);
-}else if(drawValuePercent == "RIGHT" ){
+        valueFullText, -1, 1000, c_black, fontScale);
+}else if(valueDrawPosition == "RIGHT" ){
     draw_set_font_ext(fontType, fontColor, fa_left, fa_middle, 1);
     draw_text_outline(
         buttonX + width + 5, 
         buttonY + (height div 2),
-        round(valuePercent), -1, 1000, c_black, fontScale);
+        valueFullText, -1, 1000, c_black, fontScale);
 }
 
 </string>
