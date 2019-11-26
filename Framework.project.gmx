@@ -23,6 +23,7 @@
         <sprite>sprites\sprIconCircle</sprite>
         <sprite>sprites\sprSliderBar</sprite>
         <sprite>sprites\sprSlider</sprite>
+        <sprite>sprites\sprGUIArrow</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -60,6 +61,7 @@
         <object>objects\objGUICheckbox</object>
         <object>objects\objGUIRadiobutton</object>
         <object>objects\objGUISlider</object>
+        <object>objects\objGUIDialogBox</object>
       </objects>
       <objects name="Test">
         <object>objects\objTest</object>
