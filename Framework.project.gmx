@@ -24,6 +24,7 @@
         <sprite>sprites\sprSliderBar</sprite>
         <sprite>sprites\sprSlider</sprite>
         <sprite>sprites\sprGUIArrow</sprite>
+        <sprite>sprites\sprButtonModalShadow</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -31,11 +32,6 @@
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Framework">
-      <scripts name="UI">
-        <script>scripts\draw_nineslice_tiled.gml</script>
-        <script>scripts\gui_is_mouse_over.gml</script>
-        <script>scripts\gui_setup_collision.gml</script>
-      </scripts>
       <scripts name="Util">
         <script>scripts\alert.gml</script>
         <script>scripts\chance.gml</script>
@@ -46,6 +42,12 @@
         <script>scripts\teleport_to.gml</script>
         <script>scripts\wave.gml</script>
       </scripts>
+      <scripts name="UI">
+        <script>scripts\draw_nineslice_tiled.gml</script>
+        <script>scripts\gui_is_mouse_over.gml</script>
+        <script>scripts\gui_setup_collision.gml</script>
+        <script>scripts\gui_modal.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -53,18 +55,22 @@
   </fonts>
   <objects name="objects">
     <objects name="Framework">
-      <objects name="GUI">
-        <object>objects\objGUI</object>
-        <object>objects\objGUIPanel</object>
-        <object>objects\objGUIButton</object>
-        <object>objects\objGUIInputText</object>
-        <object>objects\objGUICheckbox</object>
-        <object>objects\objGUIRadiobutton</object>
-        <object>objects\objGUISlider</object>
-        <object>objects\objGUIDialogBox</object>
-      </objects>
-      <objects name="Test">
-        <object>objects\objTest</object>
+      <objects name="Essentials">
+        <objects name="GUI">
+          <object>objects\objGUI</object>
+          <object>objects\objGUIPanel</object>
+          <object>objects\objGUIButton</object>
+          <object>objects\objGUIInputText</object>
+          <object>objects\objGUICheckbox</object>
+          <object>objects\objGUIRadiobutton</object>
+          <object>objects\objGUISlider</object>
+          <object>objects\objGUIDialogBox</object>
+        </objects>
+        <objects name="Objects">
+          <object>objects\objPause</object>
+          <object>objects\objModal</object>
+          <object>objects\objModalButton</object>
+        </objects>
       </objects>
       <objects name="Demo">
         <objects name="MainMenu">
@@ -91,15 +97,25 @@
           <object>objects\objGUIEasyPanel</object>
           <object>objects\objGUIEasyButton</object>
         </objects>
+        <objects name="TestGrounds">
+          <object>objects\objTestGrounds</object>
+          <object>objects\btnPause</object>
+          <object>objects\btnModalOK</object>
+          <object>objects\btnModalOkCancel</object>
+          <object>objects\btnModalManyOptions</object>
+          <object>objects\objOrbital</object>
+        </objects>
       </objects>
     </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="Framework">
-      <room>rooms\roomMainFramework</room>
-      <room>rooms\roomButtons</room>
-      <room>rooms\roomTestGrounds</room>
-      <room>rooms\roomEasyGUI</room>
+      <rooms name="Demo">
+        <room>rooms\roomMainFramework</room>
+        <room>rooms\roomButtons</room>
+        <room>rooms\roomTestGrounds</room>
+        <room>rooms\roomEasyGUI</room>
+      </rooms>
     </rooms>
   </rooms>
   <help>

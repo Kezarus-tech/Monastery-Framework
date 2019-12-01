@@ -85,7 +85,7 @@ cursorSelectPosition = -1;
 
 //REGULATES THE SPEED OF KEY STROKES
 keyTimer = 0;
-keyTimerLimit = 5;
+keyTimerLimit = 10;
 
 origin = "TOPLEFT"; // ALWAYS TOP LEFT
 </string>
