@@ -57,6 +57,8 @@ fontType = fntStandard;
 fontScale = 1;
 fontColor = c_yellow;
 textOffset = 10;
+
+sound = sndTypewriter;
 </string>
           </argument>
         </arguments>
@@ -107,7 +109,7 @@ textTimerNow = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///TYPEWRITER EFFECT
+            <string>///TYPEWRITER EFFECT &amp; SOUND
 
 if(textIndex &lt;= string_length(text)){
     draw_set_font(fontType);
@@ -117,7 +119,10 @@ if(textIndex &lt;= string_length(text)){
         textIndex += 1;
         alarm[1] = textTimerNow;
         textToDisplay += string_copy(text, textIndex, 1);
+
         //PLAY SOUND
+        var snd = audio_play_sound(sound, 10, false);
+        //audio_sound_pitch(snd, random_range(0.9, 0.9));
     }
 }
 

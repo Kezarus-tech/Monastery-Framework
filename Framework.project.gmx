@@ -5,7 +5,12 @@
   </Configs>
   <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="AlwaysOn">
+      <sound>sound\sndClick</sound>
+      <sound>sound\sndTypewriter</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Framework">
       <sprites name="GUI">
@@ -126,6 +131,10 @@
   <help>
     <rtf>help.rtf</rtf>
   </help>
+  <audiogroups name="audiogroups">
+    <audiogroup name="audiogroup_default"/>
+    <audiogroup name="AlwaysOn"/>
+  </audiogroups>
   <TutorialState>
     <IsTutorial>0</IsTutorial>
     <TutorialName></TutorialName>
