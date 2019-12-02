@@ -5,24 +5,10 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>objGUIPanel</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>604</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_inherited</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -39,53 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CREATE BUTTONS &amp; PANEL
-var a = application_get_position();
-//var xx = a[0];
-//var yy = a[1];
-var ww = a[2] - a[0];
-var hh = a[3] - a[1];
+            <string>///GO TO MAIN ROOM
 
-var offset = 20;
-var btnWidth = 200;
-var btnHeight = 40;
-var btnOffset = 5;
-
-width = (offset*2) + btnWidth;
-height = (offset*2) + btnHeight + ((btnHeight+btnOffset) * 3);
-
-x = (ww div 2) //middle of the screen
-    -(width div 2);
-y = (hh div 3) //a third of the screen
-    -(height div 2);
-
-var wx = x + offset;
-var wy = y + offset;
-
-instance_create(0,0,objMonasteryIcon);
-
-inst = instance_create(wx, wy, btnMenuButtons);
-inst.width = btnWidth;
-inst.height = btnHeight;
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnTestRoom);
-inst.width = btnWidth;
-inst.height = btnHeight;
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuEasyGUI);
-inst.width = btnWidth;
-inst.height = btnHeight;
-
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuQuit);
-inst.width = btnWidth;
-inst.height = btnHeight;
-
-
-
-
+room_goto(roomMainFramework);
 </string>
           </argument>
         </arguments>

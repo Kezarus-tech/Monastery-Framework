@@ -8,7 +8,6 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Framework">
-      <sprite>sprites\sprFrameworkName</sprite>
       <sprites name="GUI">
         <sprites name="Makeshift">
           <sprite>sprites\sprMakeshiftBrown</sprite>
@@ -25,6 +24,9 @@
         <sprite>sprites\sprSlider</sprite>
         <sprite>sprites\sprGUIArrow</sprite>
         <sprite>sprites\sprButtonModalShadow</sprite>
+      </sprites>
+      <sprites name="Logo">
+        <sprite>sprites\sprMonasteryIcon</sprite>
       </sprites>
     </sprites>
   </sprites>
@@ -67,6 +69,7 @@
           <object>objects\objGUIDialogBox</object>
         </objects>
         <objects name="Objects">
+          <object>objects\objInitializer</object>
           <object>objects\objPause</object>
           <object>objects\objModal</object>
           <object>objects\objModalButton</object>
@@ -79,6 +82,7 @@
           <object>objects\btnMenuButtons</object>
           <object>objects\btnMenuEasyGUI</object>
           <object>objects\btnMenuQuit</object>
+          <object>objects\objMonasteryIcon</object>
         </objects>
         <objects name="Buttons">
           <object>objects\objMenuButtonsController</object>
@@ -109,6 +113,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\roomInitializer</room>
     <rooms name="Framework">
       <rooms name="Demo">
         <room>rooms\roomMainFramework</room>

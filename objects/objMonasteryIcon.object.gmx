@@ -40,7 +40,51 @@
           <argument>
             <kind>1</kind>
             <string>///INIT
-text = "Modals";
+text = "";
+subText =   "MONASTERY#" + 
+            "FRAMEWORK#" +
+            "#Click the icon to donate";
+
+guiSprite = sprButtonModalShadow;
+guiSpritePressed = sprButtonModalShadow;
+
+pressedOffset = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///BOTTOM LEFT OF THE SCREEN &amp; SIZE
+var a = application_get_position();
+var xx = a[0];
+var yy = a[1];
+var ww = a[2] - a[0];
+var hh = a[3] - a[1];
+
+icon = sprMonasteryIcon;
+offset = 20;
+
+x = xx + offset;
+y = hh - sprite_get_height(icon) - offset;
+
+
+width = sprite_get_width(icon);
+height = sprite_get_height(icon);
 
 </string>
           </argument>
@@ -78,9 +122,50 @@ text = "Modals";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///COMMAND
+            <string>///URL OPEN
+url_open("https://www.paypal.com/cgi-bin/webscr" + 
+    "?cmd=_s-xclick&amp;hosted_button_id=AKXWGHSAS2UUL&amp;source=url");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DRAW TEXT
+draw_set_font_ext(fntStandard, c_white, fa_left, fa_top, 1);
+draw_text_outline(x + width + offset, y, subText, -1, 1000, c_black, 1);
 
-room_goto(roomTestGrounds);
+
 </string>
           </argument>
         </arguments>

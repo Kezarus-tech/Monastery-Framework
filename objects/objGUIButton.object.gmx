@@ -275,9 +275,9 @@ to get the sounds and other behaviors
             <string>///DRAW ICON
 if( icon != -1 ){
     if( buttonPressed ){
-        draw_sprite(icon, 0, buttonX, buttonY);
+        draw_sprite_ext(icon, 0, buttonX, buttonY, 1, 1, 0, image_blend, image_alpha);
     }else{
-        draw_sprite(icon, 0, buttonX, buttonY-pressedOffset);
+        draw_sprite_ext(icon, 0, buttonX, buttonY-pressedOffset, 1, 1, 0, image_blend, image_alpha);
     }
 }
 
