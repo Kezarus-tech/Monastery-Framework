@@ -131,6 +131,7 @@ appHeight = a[3] - a[1];
 var inst = instance_create(appWidth-300-10, 10, objGUIContentPanelText);
 inst.width = 300;
 inst.height = 300;
+
 inst.text = 
     "Who's the Game Designer? When you play a video game, it's very easy to pinpoint what a 3D modeler or animator contributes to the game experience. " + 
     "Same goes for the sound engineer and music composer. Of course, the game wouldn't even run were it not for the thousands of lines of code written by the programmers. " + 

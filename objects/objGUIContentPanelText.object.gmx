@@ -243,7 +243,7 @@ if(mouseOver){
     }
     
     if(changed){
-        textIndex = clamp(textIndex, 0, array_length_1d(arrText)-maxLines);
+        textIndex = clamp( textIndex, 0, max(array_length_1d(arrText)-maxLines, 0) );
         scrollBar.valueUpdate = textIndex;
     }
 }
@@ -269,7 +269,7 @@ if(mouseOver){
             <kind>1</kind>
             <string>///UPDATE BY THE SCROLLBAR
 if(instance_exists(scrollBar)){
-    textIndex = scrollBar.valueFinal;
+    textIndex = clamp(scrollBar.valueFinal, 0, array_length_1d(arrText));
 }
 
 
