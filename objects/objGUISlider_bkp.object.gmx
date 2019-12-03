@@ -57,7 +57,9 @@ guiSpriteSlider = sprSlider;
 
 orientation = "HORIZONTAL"; //HORIZONTAL or VERTICAL
 
-valuePercent = 0; // Percentual value of the current cursor
+//Percentual value of the current cursor
+valuePercent = 0;
+valueSetOnLoad = -1; // percentual
 valueDrawPosition = ""; //"", TOP, BOTTOM, LEFT, RIGHT
 valuePrefixText = "";
 valuePosfixText = "";
@@ -67,12 +69,6 @@ valueMax = 100;
 fontType = fntStandard;
 fontScale = 1;
 fontColor = c_yellow;
-
-//IF YOU CHANGE THESE VALUES
-//THE OBJECT AUTO DETECTS AND 
-//UPDATES THE SLIDER
-valueUpdate = -1; // Set On Load or Update
-valueUpdatePercentual = -1; // same as above, but percentual
 
 
 depth = 0; //always above panels
@@ -104,7 +100,7 @@ origin = "TOPLEFT"; // always TOPLEFT
 text = "";
 
 valueFullText = ""; // full text to draw
-valueFinal = 0; // the actual value calculated using valueMin and valueMax
+valueFinal = -1; // the actual value calculated using valueMin and valueMax
 alarm[0] = 1; // slider initializer
 slider = noone;
 
@@ -173,6 +169,66 @@ slider.height = heightSlider;
 slider.depth = depth-1;
 
 visible = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///VALUE - SET ON LOAD
+if( valueSetOnLoad != -1 ){
+    valuePercent = valueSetOnLoad;
+    valueSetOnLoad = -1;
+        
+    if(orientation == "HORIZONTAL" ){
+        var realIniX = (slider.width div 2);
+        var realEndX = width - (slider.width div 2);
+        slider.x = buttonX + (((realEndX-realIniX)*(valuePercent/100))+realIniX);
+    }else{
+        var realIniY = (slider.height div 2);
+        var realEndY = height - (slider.height div 2);
+        slider.y = buttonY + (((realEndY-realIniY)*(valuePercent/100))+realIniY);
+    }
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///UPDATE FINAL VALUE
+
+event_perform(ev_other, ev_user1);
 </string>
           </argument>
         </arguments>
@@ -279,54 +335,6 @@ if( mouseOver ){
 if( mouse_check_button_released(mb_left) ){
     buttonPressed = false;
 }
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///VALUE - UPDATE
-if( valueUpdatePercentual != -1 || valueUpdate != -1 ){
-    
-    if( valueUpdatePercentual != -1 ){
-        valuePercent = valueUpdatePercentual;
-    }else
-    if( valueUpdate != -1 ){
-        valuePercent = (valueUpdate-valueMin)/(valueMax-valueMin)*100
-    }
-    
-    valueUpdatePercentual = -1;
-    valueUpdate = -1;
-        
-    if(orientation == "HORIZONTAL" ){
-        var realIniX = (slider.width div 2);
-        var realEndX = width - (slider.width div 2);
-        slider.x = buttonX + (((realEndX-realIniX)*(valuePercent/100))+realIniX);
-    }else{
-        var realIniY = (slider.height div 2);
-        var realEndY = height - (slider.height div 2);
-        slider.y = buttonY + (((realEndY-realIniY)*(valuePercent/100))+realIniY);
-    }
-    
-    //UPDATE FINAL VALUE
-    event_perform(ev_other, ev_user1);
-}
-
 
 </string>
           </argument>

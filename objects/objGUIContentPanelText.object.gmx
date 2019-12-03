@@ -5,12 +5,26 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objGUIPanel</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -25,18 +39,122 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CREATE SCREENSHOT &amp; SETUP
+            <string>///CUSTOMIZEABLE VARIABLES
 
-screen_save("PausedScreen.png");
-pauseScreenShot = sprite_add("PausedScreen.png", 1, false, false, 0, 0);
-file_delete("PausedScreen.png");
+text = "Displayed Text"; //displayed text
+width = 200;
+height = 50;
 
-//SETUP
-var a = application_get_position();
-appX = a[0];
-appY = a[1];
-appWidth = a[2] - a[0];
-appHeight = a[3] - a[1];
+fontType = fntStandard;
+fontColor = c_yellow;
+textOffset = 10;
+
+scrollWidth = 20;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///INTERNAL VARS
+arrText[0] = "";
+textIndex = 0;
+maxLines = 1;
+
+fontHeight = 10;
+
+scrollBar = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///DEFINE THE TEXT ARRAY
+
+draw_set_font(fontType);
+
+fontHeight = string_height("A");
+maxLines = (height-(textOffset*2)) div fontHeight;
+
+var wSlot = 0;
+var currString = "";
+var currChar = "";
+
+var lastSkipLine = 0;
+var currStringIndex = 1;
+for(var i=1; i&lt;=string_length(text); i++){
+    currChar = string_copy(text, i, 1);
+
+    if( currChar == "#" ){
+        wSlot++;
+        arrText[wSlot] = "";
+        wSlot++;
+        currString = "";
+        currStringIndex = 1;
+    }else
+    if( string_width(currString) &lt; width-(textOffset*2)-scrollWidth ){
+        currStringIndex += 1;
+        currString += currChar;
+        arrText[wSlot] = currString;
+        
+        if(currChar == " " || currChar == "-"){
+            lastSkipLine = currStringIndex;
+        }
+    }else{
+        currString += currChar;
+
+        arrText[wSlot] = string_copy(currString, 1, lastSkipLine-1);
+        wSlot++;
+        
+        currString = string_copy(currString, lastSkipLine, string_length(currString)-lastSkipLine+1);
+        currStringIndex = string_length(currString);
+    }
+}
 
 </string>
           </argument>
@@ -58,15 +176,40 @@ appHeight = a[3] - a[1];
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CREATE LISTS &amp; EXCEPTIONS
+            <string>///CREATE SCROLLBAR
 
-lstInstances = ds_list_create();
-lstExceptions = ds_list_create();
+scrollBar = instance_create(x+width-scrollWidth, y, objGUISlider);
+
+scrollBar.width = scrollWidth;
+scrollBar.height = height;
+scrollBar.widthSlider = scrollWidth-2;
+scrollBar.heightSlider = scrollWidth;
+scrollBar.orientation = "VERTICAL";
+scrollBar.valueMin = 0;
+scrollBar.valueMax = array_length_1d(arrText)-maxLines;
+
+
 
 
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
       <action>
         <libid>1</libid>
@@ -84,28 +227,24 @@ lstExceptions = ds_list_create();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///DEACTIVATE INSTANCES
+            <string>///MOUSE WHEEL UP DOWN
 
-//This deactives and registry only what is active
-//So, if you have instances that you want to remain inactive,
-//this method garatee that only what is active now is reactivated
-//This is why I am not using deactivate all here =]
-
-with(all){
-    if( id != other ){
-        var canBeDeactivated = true;
-        
-        for( var i=0; i&lt;ds_list_size(other.lstExceptions); i++ ){
-            if( object_index == other.lstExceptions[| i] ){
-                canBeDeactivated = false;
-                break;
-            }
-        }
-        
-        if(canBeDeactivated){
-            ds_list_add(other.lstInstances, id);
-            instance_deactivate_object(id);
-        }
+if(mouseOver){
+    var changed = false;
+    
+    if( mouse_wheel_down() ){
+        textIndex += 1;
+        changed = true;
+    }
+    
+    if( mouse_wheel_up() ){
+        textIndex -= 1;
+        changed = true;
+    }
+    
+    if(changed){
+        textIndex = clamp(textIndex, 0, array_length_1d(arrText)-maxLines);
+        scrollBar.valueUpdate = textIndex;
     }
 }
 </string>
@@ -128,64 +267,12 @@ with(all){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CUSTOMIZEABLE VARIABLES
-
-//JUST ADD YOUR GLOBAL EXCEPTIONS HERE
-//ds_list_add(lstExceptions, objOrbital);
-
-//this indicates if the pause can draw the pause text and can unpause itself
-//if set to true, a third party have to just destroy the pause
-suppress = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///ACTIVATE INSTANCES
-for( var i=0; i&lt;ds_list_size(lstInstances); i++ ){
-    instance_activate_object(lstInstances[| i]);
+            <string>///UPDATE BY THE SCROLLBAR
+if(instance_exists(scrollBar)){
+    textIndex = scrollBar.valueFinal;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///DESTROY LISTS AND SCREENSHOT
-ds_list_destroy(lstInstances);
-ds_list_destroy(lstExceptions);
-sprite_delete(pauseScreenShot);
+
+
 </string>
           </argument>
         </arguments>
@@ -194,26 +281,17 @@ sprite_delete(pauseScreenShot);
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
+        <id>604</id>
+        <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///DRAW PAUSE
-draw_sprite_ext(pauseScreenShot, 0, -appX, -appY, 1, 1, 0, c_gray, 1);
-
-</string>
-          </argument>
-        </arguments>
       </action>
       <action>
         <libid>1</libid>
@@ -232,40 +310,25 @@ draw_sprite_ext(pauseScreenShot, 0, -appX, -appY, 1, 1, 0, c_gray, 1);
           <argument>
             <kind>1</kind>
             <string>///DRAW TEXT
-
-if( !suppress ){
-    draw_set_font_ext(fntStandard, c_yellow, fa_center, fa_middle);
-    draw_text_outline(appWidth*0.5, appHeight*0.3, "Press 'Space' to unpause");
+if( text != "" ){
+    draw_set_font_ext(fontType, fontColor, fa_left, fa_top, 1);
+    
+    var textX = x + textOffset;
+    var textY = y + textOffset;
+    
+    for(var i=textIndex; i&lt;array_length_1d(arrText); i++){
+        draw_text_outline( textX, textY, arrText[i], -1, width, c_black, 1 );
+        textY += fontHeight;
+        
+        if(textY-y &gt; height-(textOffset*2)){
+            break;
+        }
+    }
+    
+    
 }
 
 
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="32">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///DESTROY INSTANCE
-if( !suppress ){
-    instance_destroy();
-}
 </string>
           </argument>
         </arguments>

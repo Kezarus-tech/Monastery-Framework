@@ -80,7 +80,7 @@ text = "Modals";
             <kind>1</kind>
             <string>///COMMAND
 
-room_goto(roomTestGrounds);
+room_goto(roomModals);
 </string>
           </argument>
         </arguments>

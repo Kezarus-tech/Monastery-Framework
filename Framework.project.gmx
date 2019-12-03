@@ -72,6 +72,7 @@
           <object>objects\objGUIRadiobutton</object>
           <object>objects\objGUISlider</object>
           <object>objects\objGUIDialogBox</object>
+          <object>objects\objGUIContentPanelText</object>
         </objects>
         <objects name="Objects">
           <object>objects\objInitializer</object>
@@ -106,7 +107,7 @@
           <object>objects\objGUIEasyPanel</object>
           <object>objects\objGUIEasyButton</object>
         </objects>
-        <objects name="TestGrounds">
+        <objects name="Modals">
           <object>objects\objTestGrounds</object>
           <object>objects\btnPause</object>
           <object>objects\btnModalOK</object>
@@ -123,7 +124,7 @@
       <rooms name="Demo">
         <room>rooms\roomMainFramework</room>
         <room>rooms\roomButtons</room>
-        <room>rooms\roomTestGrounds</room>
+        <room>rooms\roomModals</room>
         <room>rooms\roomEasyGUI</room>
       </rooms>
     </rooms>

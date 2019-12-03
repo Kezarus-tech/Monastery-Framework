@@ -63,7 +63,7 @@ inst.valuePosfixText = "%";
 inst.height = 20;
 inst.widthSlider = 20;
 inst.heightSlider = 16;
-inst.valueSetOnLoad = 25;
+inst.valueUpdatePercentual = 25;
 
 wy += elementHeight + elementOffset;
 inst = instance_create(wx, wy, objGUISlider);
@@ -72,19 +72,19 @@ inst.valueDrawPosition = "RIGHT";
 inst.height = 6;
 inst.widthSlider = 10;
 inst.heightSlider = 20;
-inst.valueSetOnLoad = 50;
+inst.valueUpdatePercentual = 50;
 
 wy += (elementHeight + elementOffset) * 1.5;
 inst = instance_create(wx, wy, objGUISlider);
 inst.width = elementWidth * 1;
 inst.valueDrawPosition = "TOP";
 inst.valuePrefixText = "Value: ";
-inst.valueSetOnLoad = 75;
+inst.valueUpdatePercentual = 75;
 
 inst = instance_create(wx + elementWidth + elementOffset, wy, objGUISlider);
 inst.width = elementWidth;
 inst.drawValuePercent = "BOTTOM";
-inst.valueSetOnLoad = 100;
+inst.valueUpdatePercentual = 100;
 
 wy += elementHeight + elementOffset;
 inst = instance_create(wx, wy, objGUISlider);
@@ -105,7 +105,7 @@ inst.height = elementWidth * 1.5;
 inst.width = 10;
 inst.widthSlider = 24;
 inst.heightSlider = 10;
-inst.valueSetOnLoad = 33;
+inst.valueUpdatePercentual = 33;
 
 wx += 60;
 inst = instance_create(wx, wy, objGUISlider);
@@ -117,7 +117,7 @@ inst.height = elementWidth * 1.5;
 inst.width = 10;
 inst.widthSlider = 24;
 inst.heightSlider = 10;
-inst.valueSetOnLoad = 66;
+inst.valueUpdatePercentual = 66;
 
 wx += 60;
 inst = instance_create(wx, wy, objGUISlider);
@@ -127,7 +127,7 @@ inst.height = elementWidth * 1.8;
 inst.width = 20;
 inst.widthSlider = 16;
 inst.heightSlider = 20;
-inst.valueSetOnLoad = 100;
+inst.valueUpdatePercentual = 100;
 
 
 
