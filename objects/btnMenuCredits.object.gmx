@@ -5,10 +5,24 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objGUIButton</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,48 +39,51 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CREATE PANELS
+            <string>///INIT
+text = "Credits";
 
-instance_create(10, 10, pnlMenuButtons);
-
-instance_create(260, 10, pnlMenuCheckbox);
-
-var inst = instance_create(10, 414, objGUIDialogBox);
-
-inst.width = 800
-inst.height = 118;
-
-inst.text = "###"+
-    "Hey. Don't ever let somebody tell you, you can't do something. " +
-    "#Not even me. All right? ##" +
-    "You got a dream? " +
-    "#You gotta protect it. ##" +
-    "People can't do something themselves, they want to tell you you can't do it. ###" +
-    "You want something?         " +
-    "#Go get it! " +
-    "#Period!";
-/*
-repeat(500){
-    inst.text += choose("m", "n") + "o" + choose("", " ");
-}
-*/
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
-        <id>203</id>
+        <id>604</id>
         <kind>0</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
+        <useapplyto>0</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
+        <functionname>action_inherited</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///COMMAND
+
+room_goto(roomModals);
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
   </events>

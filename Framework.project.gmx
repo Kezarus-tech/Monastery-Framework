@@ -6,9 +6,15 @@
   <datafiles number="1" name="datafiles"/>
   <NewExtensions/>
   <sounds name="sound">
-    <sounds name="AlwaysOn">
-      <sound>sound\sndClick</sound>
-      <sound>sound\sndTypewriter</sound>
+    <sounds name="Sound">
+      <sounds name="AlwaysOn">
+        <sound>sound\sndClick</sound>
+        <sound>sound\sndTypewriter</sound>
+      </sounds>
+    </sounds>
+    <sounds name="Music">
+      <sound>sound\musicChant</sound>
+      <sound>sound\musicChantDeep</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -79,6 +85,7 @@
           <object>objects\objPause</object>
           <object>objects\objModal</object>
           <object>objects\objModalButton</object>
+          <object>objects\objMusicBox</object>
         </objects>
       </objects>
       <objects name="Demo">
@@ -87,6 +94,8 @@
           <object>objects\btnTestRoom</object>
           <object>objects\btnMenuButtons</object>
           <object>objects\btnMenuEasyGUI</object>
+          <object>objects\btnMenuOptions</object>
+          <object>objects\btnMenuCredits</object>
           <object>objects\btnMenuQuit</object>
           <object>objects\objMonasteryIcon</object>
         </objects>
@@ -115,6 +124,11 @@
           <object>objects\btnModalManyOptions</object>
           <object>objects\objOrbital</object>
         </objects>
+        <objects name="Options">
+          <object>objects\pnlOptions</object>
+          <object>objects\sldMusic</object>
+          <object>objects\sldSound</object>
+        </objects>
       </objects>
     </objects>
   </objects>
@@ -126,6 +140,7 @@
         <room>rooms\roomButtons</room>
         <room>rooms\roomModals</room>
         <room>rooms\roomEasyGUI</room>
+        <room>rooms\roomOptions</room>
       </rooms>
     </rooms>
   </rooms>

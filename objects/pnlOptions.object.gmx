@@ -39,12 +39,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///CREATE BUTTONS &amp; PANEL
+            <string>///CREATE OBJECTS
+
+//SETUP
 var a = application_get_position();
-//var xx = a[0];
-//var yy = a[1];
-var ww = a[2] - a[0];
-var hh = a[3] - a[1];
+appX = a[0];
+appY = a[1];
+appWidth = a[2] - a[0];
+appHeight = a[3] - a[1];
+
 
 var offset = 20;
 var btnWidth = 200;
@@ -52,47 +55,91 @@ var btnHeight = 40;
 var btnOffset = 5;
 
 width = (offset*2) + btnWidth;
-height = (offset*2) + btnHeight + ((btnHeight+btnOffset) * 5);
-
-x = (ww div 2) //middle of the screen
-    -(width div 2);
-y = (hh div 3) //a third of the screen
-    -(height div 2);
+height = (offset*2) + btnHeight + ((btnHeight+btnOffset) * 3.5);
+x = (appWidth div 2)-(width div 2);
+y = 50;
 
 var wx = x + offset;
 var wy = y + offset;
-
-instance_create(0,0,objMonasteryIcon);
-
-inst = instance_create(wx, wy, btnMenuButtons);
-inst.width = btnWidth;
-inst.height = btnHeight;
+var inst;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnTestRoom);
+inst = instance_create(wx, wy, sldMusic);
 inst.width = btnWidth;
-inst.height = btnHeight;
+inst.height = btnHeight div 4;
+
+wy += (btnHeight + btnOffset)*1.5;
+inst = instance_create(wx, wy, sldSound);
+inst.width = btnWidth;
+inst.height = btnHeight div 4;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuEasyGUI);
+inst = instance_create(wx, wy, btnMenuMain);
 inst.width = btnWidth;
 inst.height = btnHeight;
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuOptions);
-inst.width = btnWidth;
-inst.height = btnHeight;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///LOAD INI
+fileName = "CONFIG.INI";
+var value;
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuCredits);
-inst.width = btnWidth;
-inst.height = btnHeight;
+ini_open(fileName);
 
-wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuQuit);
-inst.width = btnWidth;
-inst.height = btnHeight;
+value = ini_read_real("prefs", "music", 100);
+sldMusic.valueUpdate = value;
 
+value = ini_read_real("prefs", "sound", 100);
+sldSound.valueUpdate = value;
+
+ini_close();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///SAVE INI
+ini_open(fileName);
+
+ini_write_real("prefs", "music", sldMusic.valueFinal);
+ini_write_real("prefs", "sound", sldSound.valueFinal);
+
+ini_close();
 </string>
           </argument>
         </arguments>

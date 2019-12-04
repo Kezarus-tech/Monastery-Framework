@@ -2,9 +2,9 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,7 +25,54 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///--CREATE YOUR GLOBALS AND ENUMS HERE
+            <string>///LOAD MUSIC ON ARRAY
+
+//put as many musics as you like here
+
+playlistA[0] = musicChant;
+//playlistA[1] = musicChant;
+//playlistA[2] = musicChant;
+//playlistA[3] = musicChant;
+
+
+playlistB[0] = musicChantDeep;
+//playlistB[1] = musicChant;
+//playlistB[2] = musicChant;
+//playlistB[3] = musicChant;
+
+//add your alternative rooms here
+lstAltRooms = ds_list_create();
+ds_list_add(lstAltRooms, roomButtons);
+
+
+roomType = "PLAY_A"; //PLAY_A, PLAY_B
+
+alarm[0] = 1;
+playingNow = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///LOOP ALARM
+alarm[0] = 60;
 </string>
           </argument>
         </arguments>
@@ -46,12 +93,33 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///LOAD SOUND ALWAYS ON
-audio_group_load(AlwaysOn);
+            <string>///PLAY MUSICS
+
+if( !audio_is_playing(playingNow) ){
+    var toPlay;
+    
+    if( ds_list_find_index(lstAltRooms, room) == -1 ){
+        if(playingNow == -1){
+            toPlay = playlistA[0]; //PLAY THEME MUSIC, THE FIRST ONE
+        }else{
+            toPlay = playlistA[ irandom_range(0, array_length_1d(playlistA)-1) ];
+        }
+    }else{
+        toPlay = playlistB[ irandom_range(0, array_length_1d(playlistB)-1) ];
+    }
+    
+    playingNow = toPlay;
+    audio_play_sound(playingNow, 1, false);
+}
+
+
+
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -68,63 +136,18 @@ audio_group_load(AlwaysOn);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///INI FILE
-fileName = "CONFIG.INI";
-ini_open(fileName);
+            <string>///ON ALT ROOM
+var roomNow = "PLAY_A";
+if( ds_list_find_index(lstAltRooms, room) != -1 ){
+    roomNow = "PLAY_B";
+}
 
-var value = ini_read_real("prefs", "sound", 100);
-audio_group_set_gain(AlwaysOn, value/100, 1);
+if(roomType != roomNow){
+    roomType = roomNow;
+    audio_stop_sound(playingNow);
+    alarm[0] = 1;
+}
 
-value = ini_read_real("prefs", "music", 100);
-audio_group_set_gain(audiogroup_default, value/100, 1);
-
-ini_close();
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///CREATE ESSENTIAL OBJECTS
-
-instance_create(-1000, -1000, objMusicBox);
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///GO TO MAIN ROOM
-
-room_goto(roomMainFramework);
 </string>
           </argument>
         </arguments>
