@@ -51,6 +51,7 @@
         <script>scripts\draw_nineslice.gml</script>
         <script>scripts\draw_set_font_ext.gml</script>
         <script>scripts\draw_text_outline.gml</script>
+        <script>scripts\screen_shake.gml</script>
         <script>scripts\string_split.gml</script>
         <script>scripts\teleport_to.gml</script>
         <script>scripts\wave.gml</script>
@@ -86,6 +87,7 @@
           <object>objects\objModal</object>
           <object>objects\objModalButton</object>
           <object>objects\objMusicBox</object>
+          <object>objects\objShake</object>
         </objects>
       </objects>
       <objects name="Demo">
@@ -94,10 +96,11 @@
           <object>objects\btnTestRoom</object>
           <object>objects\btnMenuButtons</object>
           <object>objects\btnMenuEasyGUI</object>
+          <object>objects\btnMenuShake</object>
           <object>objects\btnMenuOptions</object>
-          <object>objects\btnMenuCredits</object>
           <object>objects\btnMenuQuit</object>
           <object>objects\objMonasteryIcon</object>
+          <object>objects\objCredits</object>
         </objects>
         <objects name="Buttons">
           <object>objects\objMenuButtonsController</object>
@@ -123,11 +126,16 @@
           <object>objects\btnModalOkCancel</object>
           <object>objects\btnModalManyOptions</object>
           <object>objects\objOrbital</object>
+          <object>objects\objTweek9Slices</object>
         </objects>
         <objects name="Options">
           <object>objects\pnlOptions</object>
           <object>objects\sldMusic</object>
           <object>objects\sldSound</object>
+        </objects>
+        <objects name="Shake">
+          <object>objects\pnlShake</object>
+          <object>objects\btnShake</object>
         </objects>
       </objects>
     </objects>
@@ -139,6 +147,7 @@
         <room>rooms\roomMainFramework</room>
         <room>rooms\roomButtons</room>
         <room>rooms\roomModals</room>
+        <room>rooms\roomShake</room>
         <room>rooms\roomEasyGUI</room>
         <room>rooms\roomOptions</room>
       </rooms>

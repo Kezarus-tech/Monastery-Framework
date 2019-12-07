@@ -63,6 +63,7 @@ var wx = x + offset;
 var wy = y + offset;
 
 instance_create(0,0,objMonasteryIcon);
+instance_create(0,0,objCredits);
 
 inst = instance_create(wx, wy, btnMenuButtons);
 inst.width = btnWidth;
@@ -84,7 +85,7 @@ inst.width = btnWidth;
 inst.height = btnHeight;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuCredits);
+inst = instance_create(wx, wy, btnMenuShake);
 inst.width = btnWidth;
 inst.height = btnHeight;
 

@@ -5,10 +5,24 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>objGUIButton</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -26,13 +40,28 @@
           <argument>
             <kind>1</kind>
             <string>///INIT
-orbitDirection = 0;
+text = "Shake";
+
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="0">
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>604</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_inherited</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+      </action>
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,22 +78,9 @@ orbitDirection = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///DRAW CIRCLES
+            <string>///COMMAND
 
-//CENTER CIRCLE
-draw_circle_colour(x, y, 30, c_yellow, c_yellow, false);
-
-if(orbitDirection &gt;= 360){
-    orbitDirection = 0;
-}else{
-    orbitDirection += 2;
-}
-
-draw_circle_colour(
-    x+lengthdir_x(100, orbitDirection), 
-    y+lengthdir_y(100, orbitDirection), 
-    10, c_blue, c_blue, false);
-
+room_goto(roomShake);
 </string>
           </argument>
         </arguments>

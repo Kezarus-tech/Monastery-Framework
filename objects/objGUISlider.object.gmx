@@ -172,6 +172,10 @@ slider.width = widthSlider;
 slider.height = heightSlider;
 slider.depth = depth-1;
 
+if( valueUpdate == -1 ){
+    valueUpdate = valueMin;
+}
+
 visible = true;
 </string>
           </argument>
@@ -305,6 +309,9 @@ if( mouse_check_button_released(mb_left) ){
           <argument>
             <kind>1</kind>
             <string>///VALUE - UPDATE
+if(!visible){
+    //DO NOTHING
+}else
 if( valueUpdatePercentual != -1 || valueUpdate != -1 ){
     
     if( valueUpdatePercentual != -1 ){

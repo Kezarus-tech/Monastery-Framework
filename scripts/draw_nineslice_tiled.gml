@@ -68,6 +68,7 @@ for(xx=x1+slice_width; xx<x2-slice_width; xx+=slice_width){
 draw_sprite_part_ext(sprite, choose(0, 0, irandom(wSprNumber)), slice_width*2, 0,              slice_width, slice_height, x2-slice_width, y1,              1, 1, color, alpha); //Top Right
 draw_sprite_part_ext(sprite, choose(0, 0, irandom(wSprNumber)), slice_width*2, slice_height*2, slice_width, slice_height, x2-slice_width, y2-slice_height, 1, 1, color, alpha); //Bottom Right
 
+
 if(wRandom != -1){
     randomize();
 }
