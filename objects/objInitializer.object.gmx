@@ -102,6 +102,8 @@ ini_close();
             <string>///CREATE ESSENTIAL OBJECTS
 
 instance_create(-1000, -1000, objMusicBox);
+instance_create(-1000, -1000, objMouseGui);
+
 </string>
           </argument>
         </arguments>

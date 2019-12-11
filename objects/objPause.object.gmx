@@ -63,6 +63,9 @@ appHeight = a[3] - a[1];
 lstInstances = ds_list_create();
 lstExceptions = ds_list_create();
 
+//JUST ADD YOUR GLOBAL EXCEPTIONS HERE
+//ds_list_add(lstExceptions, objOrbital);
+ds_list_add(lstExceptions, objMouseGui);
 
 </string>
           </argument>
@@ -129,9 +132,6 @@ with(all){
           <argument>
             <kind>1</kind>
             <string>///CUSTOMIZEABLE VARIABLES
-
-//JUST ADD YOUR GLOBAL EXCEPTIONS HERE
-//ds_list_add(lstExceptions, objOrbital);
 
 //this indicates if the pause can draw the pause text and can unpause itself
 //if set to true, a third party have to just destroy the pause

@@ -87,7 +87,7 @@ cursorSelectPosition = -1;
 keyTimer = 0;
 keyTimerLimit = 10;
 
-origin = "TOPLEFT"; // ALWAYS TOP LEFT
+origin = GUI_TOPLEFT; // ALWAYS TOP LEFT
 </string>
           </argument>
         </arguments>

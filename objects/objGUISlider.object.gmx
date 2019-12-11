@@ -100,7 +100,7 @@ depth = 0; //always above panels
             <kind>1</kind>
             <string>///INTERNAL VARS &amp; SETUP COLISIONS
 
-origin = "TOPLEFT"; // always TOPLEFT
+origin = GUI_TOPLEFT; // always TOPLEFT
 text = "";
 
 valueFullText = ""; // full text to draw
@@ -166,7 +166,7 @@ if( orientation == "HORIZONTAL" ){
     slider = instance_create(buttonX + (width div 2), buttonY+(heightSlider div 2), objGUIPanel);
 }
 
-slider.origin = "CENTER";
+slider.origin = GUI_CENTER;
 slider.guiSprite = guiSpriteSlider;
 slider.width = widthSlider;
 slider.height = heightSlider;

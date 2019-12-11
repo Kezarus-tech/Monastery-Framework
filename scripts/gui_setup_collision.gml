@@ -1,4 +1,4 @@
-///gui_setup_collision( from: TOPLEFT, CENTER )
+///gui_setup_collision( from: GUI_TOPLEFT, GUI_CENTER )
 
 // REFRAME THE COLISION BOX
 
@@ -13,12 +13,12 @@ if( detectorPosSize !=
     buttonX = x;
     buttonY = y;
     
-    if(string_upper(argument0) == "CENTER"){
+    if(argument0 == GUI_CENTER){
         buttonLeft      = buttonX       - width div 2;
         buttonRight     = buttonLeft    + width - 1;
         buttonTop       = buttonY       - height div 2;
         buttonBottom    = buttonTop     + height - 1;
-    }else if(string_upper(argument0) == "TOPLEFT"){
+    }else if(argument0 == GUI_TOPLEFT){
         buttonLeft      = buttonX;
         buttonRight     = buttonLeft    + width - 1;
         buttonTop       = buttonY;

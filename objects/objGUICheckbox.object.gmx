@@ -74,7 +74,7 @@ height = sprite_height;
 
 toggled = true;
 
-origin = "TOPLEFT"; //always top left
+origin = GUI_TOPLEFT; //always top left
 </string>
           </argument>
         </arguments>

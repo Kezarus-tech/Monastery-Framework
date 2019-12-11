@@ -61,6 +61,12 @@
         <script>scripts\gui_is_mouse_over.gml</script>
         <script>scripts\gui_setup_collision.gml</script>
         <script>scripts\gui_modal.gml</script>
+        <script>scripts\gui_create_button.gml</script>
+        <script>scripts\gui_mouse_x.gml</script>
+        <script>scripts\gui_mouse_y.gml</script>
+      </scripts>
+      <scripts name="Demo">
+        <script>scripts\func_room_goto.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -88,6 +94,7 @@
           <object>objects\objModalButton</object>
           <object>objects\objMusicBox</object>
           <object>objects\objShake</object>
+          <object>objects\objMouseGui</object>
         </objects>
       </objects>
       <objects name="Demo">
@@ -153,6 +160,10 @@
       </rooms>
     </rooms>
   </rooms>
+  <constants number="2">
+    <constant name="GUI_TOPLEFT">1</constant>
+    <constant name="GUI_CENTER">2</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>

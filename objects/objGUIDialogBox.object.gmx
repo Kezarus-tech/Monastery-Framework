@@ -51,7 +51,7 @@ height = 50;
 guiSprite = sprPanel;
 depth = 100; //same level as panels
 
-origin = "TOPLEFT"; // TOPLEFT or CENTER
+origin = GUI_TOPLEFT; // GUI_TOPLEFT or GUI_CENTER
 
 fontType = fntStandard;
 fontScale = 1;
