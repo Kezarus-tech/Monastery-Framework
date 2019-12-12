@@ -118,9 +118,7 @@ wBtnShake.sliderHowLong = inst;
 
 
 wy += btnHeight + (btnOffset*2);
-inst = instance_create(wx, wy, btnMenuMain);
-inst.width = btnWidth;
-inst.height = btnHeight;
+gui_create_button(wx, wy, btnWidth, btnHeight, "Main Menu", func_room_goto, roomMainFramework);
 </string>
           </argument>
         </arguments>

@@ -45,11 +45,7 @@ inst.text = "###"+
     "You want something?         " +
     "#Go get it! " +
     "#Period!";
-/*
-repeat(500){
-    inst.text += choose("m", "n") + "o" + choose("", " ");
-}
-*/
+
 </string>
           </argument>
         </arguments>

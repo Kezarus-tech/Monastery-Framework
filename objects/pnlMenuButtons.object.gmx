@@ -52,47 +52,34 @@ var wx = x + offset;
 var wy = y + offset;
 var inst;
 
-inst = instance_create(wx, wy, btnMenuButtonsStandard);
-inst.width = btnWidth;
-inst.height = btnHeight;
+gui_create_button(wx, wy, btnWidth, btnHeight, "Standard", alert, "Standard clicked");
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsDisabled);
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Disabled", alert, "Disabled clicked");
+inst.enabled = false;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsStayPressed);
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Stay Pressed", alert, "Stay Pressed clicked");
+inst.stayPressed = true;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsToggled);
-inst.text = "Toggled 1";
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Toggled 1", alert, "Toggled 1 clicked");
+inst.toggled = true;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsToggled);
-inst.text = "Toggled 2";
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Toggled 2", alert, "Toggled 2 clicked");
+inst.toggled = true;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsToggled);
-inst.text = "Toggled 3";
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Toggled 3", alert, "Toggled 3 clicked");
+inst.toggled = true;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuButtonsClear);
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Clear", clear_all_buttons);
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuMain);
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Main Menu", func_room_goto, roomMainFramework);
+
 
 
 </string>

@@ -86,24 +86,17 @@ offset = 10;
 width -= offset;
 height -= offset;
 
-scrollBarH = instance_create(x+offset, y, objGUISlider);
-scrollBarH.width = width;
-scrollBarH.height = offset;
-scrollBarH.widthSlider = offset;
-scrollBarH.heightSlider = offset-2;
-scrollBarH.valueMin = offset;
-scrollBarH.valueMax = width;
-scrollBarH.valueUpdate = 150;
+scrollBarH = gui_create_slider(
+                x+offset, y,
+                width, offset, offset, offset-2, 
+                offset, width, 150
+            );
 
-scrollBarV = instance_create(x, y+offset, objGUISlider);
-scrollBarV.orientation = "VERTICAL";
-scrollBarV.width = offset;
-scrollBarV.height = height;
-scrollBarV.widthSlider = offset-2;
-scrollBarV.heightSlider = offset;
-scrollBarV.valueMin = offset;
-scrollBarV.valueMax = height;
-scrollBarV.valueUpdate = 50;
+scrollBarV = gui_create_slider(
+                x, y+offset,
+                offset, height, offset-2, offset,
+                offset, height, 50
+            );
 
 //START
 x += offset;

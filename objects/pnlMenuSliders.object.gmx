@@ -52,81 +52,46 @@ var wx = x + offset;
 var wy = y + offset;
 var inst;
 
-inst = instance_create(wx, wy, objGUISlider);
-inst.width = elementWidth*2;
+gui_create_slider(wx, wy, elementWidth*2, 10);
 
 wy += elementHeight + elementOffset;
-inst = instance_create(x + width - offset - (elementWidth*1.5), wy, objGUISlider);
-inst.width = elementWidth * 1.5;
+inst = gui_create_slider(x + width - offset - (elementWidth*1.5), wy, elementWidth * 1.5, 20, 20, 16);
 inst.valueDrawPosition = "LEFT";
 inst.valuePosfixText = "%";
-inst.height = 20;
-inst.widthSlider = 20;
-inst.heightSlider = 16;
 inst.valueUpdatePercentual = 25;
-
+                       
 wy += elementHeight + elementOffset;
-inst = instance_create(wx, wy, objGUISlider);
-inst.width = elementWidth * 1.5;
+inst = gui_create_slider(wx, wy, elementWidth * 1.5, 6, 10, 20);
 inst.valueDrawPosition = "RIGHT";
-inst.height = 6;
-inst.widthSlider = 10;
-inst.heightSlider = 20;
 inst.valueUpdatePercentual = 50;
 
 wy += (elementHeight + elementOffset) * 1.5;
-inst = instance_create(wx, wy, objGUISlider);
-inst.width = elementWidth * 1;
+inst = gui_create_slider(wx, wy, elementWidth * 1, 10);
 inst.valueDrawPosition = "TOP";
 inst.valuePrefixText = "Value: ";
 inst.valueUpdatePercentual = 75;
 
-inst = instance_create(wx + elementWidth + elementOffset, wy, objGUISlider);
-inst.width = elementWidth;
-inst.drawValuePercent = "BOTTOM";
+inst = gui_create_slider(wx + elementWidth + elementOffset, wy-30, elementWidth, 10);
+inst.valueDrawPosition = "BOTTOM";
 inst.valueUpdatePercentual = 100;
 
 wy += elementHeight + elementOffset;
-inst = instance_create(wx, wy, objGUISlider);
-inst.orientation = "VERTICAL";
+inst = gui_create_slider(wx, wy, 10, elementWidth * 1.8, 24, 10, 0, 10);
 inst.valueDrawPosition = "RIGHT";
-inst.valueMax = 10;
-inst.height = elementWidth * 1.8;
-inst.width = 10;
-inst.widthSlider = 24;
-inst.heightSlider = 10;
 
 wx += 60;
-inst = instance_create(wx, wy + (elementWidth * 0.3), objGUISlider);
-inst.orientation = "VERTICAL";
+inst = gui_create_slider(wx, wy + (elementWidth * 0.3), 10, elementWidth * 1.5, 24, 10, 0, 1000);
 inst.valueDrawPosition = "TOP";
-inst.valueMax = 1000;
-inst.height = elementWidth * 1.5;
-inst.width = 10;
-inst.widthSlider = 24;
-inst.heightSlider = 10;
 inst.valueUpdatePercentual = 33;
 
 wx += 60;
-inst = instance_create(wx, wy, objGUISlider);
-inst.orientation = "VERTICAL";
+inst = gui_create_slider(wx, wy, 10, elementWidth * 1.5, 24, 10, 100, 900, 660);
 inst.valueDrawPosition = "BOTTOM";
-inst.valueMin = 100;
-inst.valueMax = 900;
-inst.height = elementWidth * 1.5;
-inst.width = 10;
-inst.widthSlider = 24;
-inst.heightSlider = 10;
-inst.valueUpdatePercentual = 66;
+
 
 wx += 60;
-inst = instance_create(wx, wy, objGUISlider);
-inst.orientation = "VERTICAL";
+inst = gui_create_slider(wx, wy, 20, elementWidth * 1.8, 16, 20);
 inst.valueDrawPosition = "LEFT";
-inst.height = elementWidth * 1.8;
-inst.width = 20;
-inst.widthSlider = 16;
-inst.heightSlider = 20;
 inst.valueUpdatePercentual = 100;
 
 

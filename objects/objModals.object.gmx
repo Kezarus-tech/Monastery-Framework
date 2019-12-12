@@ -75,9 +75,7 @@ var wx = x + offset;
 var wy = y + offset;
 var inst;
 
-inst = instance_create(wx, wy, btnPause);
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Pause", call_pause);
 
 wy += btnHeight + btnOffset;
 inst = instance_create(wx, wy, btnModalOK);
@@ -95,9 +93,8 @@ inst.width = btnWidth;
 inst.height = btnHeight;
 
 wy += btnHeight + btnOffset;
-inst = instance_create(wx, wy, btnMenuMain);
-inst.width = btnWidth;
-inst.height = btnHeight;
+inst = gui_create_button(wx, wy, btnWidth, btnHeight, "Main Menu", func_room_goto, roomMainFramework);
+
 </string>
           </argument>
         </arguments>

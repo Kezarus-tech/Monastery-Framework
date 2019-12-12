@@ -54,10 +54,6 @@ heightSlider = 24;
 //Slider sprite
 guiSpriteSlider = sprSlider;
 
-
-orientation = "HORIZONTAL"; //HORIZONTAL or VERTICAL
-
-valuePercent = 0; // Percentual value of the current cursor
 valueDrawPosition = ""; //"", TOP, BOTTOM, LEFT, RIGHT
 valuePrefixText = "";
 valuePosfixText = "";
@@ -100,11 +96,15 @@ depth = 0; //always above panels
             <kind>1</kind>
             <string>///INTERNAL VARS &amp; SETUP COLISIONS
 
+orientation = "HORIZONTAL"; //HORIZONTAL or VERTICAL
+
 origin = GUI_TOPLEFT; // always TOPLEFT
 text = "";
 
+valuePercent = 0;
 valueFullText = ""; // full text to draw
 valueFinal = 0; // the actual value calculated using valueMin and valueMax
+
 alarm[0] = 1; // slider initializer
 slider = noone;
 
@@ -159,6 +159,12 @@ instance_destroy(slider);
           <argument>
             <kind>1</kind>
             <string>///LOCAL INITIALIZER
+
+if( width &gt; height ){
+    orientation = "HORIZONTAL";
+}else{
+    orientation = "VERTICAL";
+}
 
 if( orientation == "HORIZONTAL" ){
     slider = instance_create(buttonX + (widthSlider div 2), buttonY+(height div 2), objGUIPanel);
@@ -274,7 +280,13 @@ if(buttonPressed){
           <argument>
             <kind>1</kind>
             <string>///CLICK AND DRAG DETECTION
-if( mouseOver ){
+
+var mouseOverSlider = false;
+with(slider){
+    mouseOverSlider = mouseOver;
+}
+
+if( mouseOver || mouseOverSlider ){
     if( mouse_check_button_pressed(mb_left) ){
         buttonPressed = true;
     }

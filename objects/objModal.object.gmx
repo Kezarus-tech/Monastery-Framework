@@ -221,9 +221,9 @@ visible = true;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///EXECUTE MODAL RESPONSE (CALLED BY MODAL BTN)
-instance_destroy(objPause);
+            <string>///EXECUTE MODAL RESPONSE (CALLED BY objModalButton)
 instance_destroy(objModalButton);
+instance_destroy(objPause);
 
 with( owner ){
     modalAnswer = other.modalAnswer;

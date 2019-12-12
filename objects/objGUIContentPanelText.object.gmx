@@ -178,18 +178,10 @@ for(var i=1; i&lt;=string_length(text); i++){
             <kind>1</kind>
             <string>///CREATE SCROLLBAR
 
-scrollBar = instance_create(x+width-scrollWidth, y, objGUISlider);
-
-scrollBar.width = scrollWidth;
-scrollBar.height = height;
-scrollBar.widthSlider = scrollWidth-2;
-scrollBar.heightSlider = scrollWidth;
-scrollBar.orientation = "VERTICAL";
-scrollBar.valueMin = 0;
-scrollBar.valueMax = array_length_1d(arrText)-maxLines;
-
-
-
+scrollBar = gui_create_slider(
+                x+width-scrollWidth, y,
+                scrollWidth, height, scrollWidth-2, scrollWidth, 
+                0, array_length_1d(arrText)-maxLines);
 
 </string>
           </argument>
