@@ -84,7 +84,13 @@ valueMax = 100;
           <argument>
             <kind>1</kind>
             <string>///SET VOLUME
-audio_group_set_gain(audiogroup_default, valueFinal/100, 1);
+var volumeNow = valueFinal/100;
+audio_group_set_gain(audiogroup_default, volumeNow, 1);
+
+with(objMusicBox){
+    musicVolume = volumeNow;
+}
+
 </string>
           </argument>
         </arguments>
