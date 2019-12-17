@@ -22,6 +22,7 @@ with(inst){
     
     if(argument_count > 6){
         valueMin = argument[6];
+        valueUpdate = valueMin;
     }
     
     if(argument_count > 7){

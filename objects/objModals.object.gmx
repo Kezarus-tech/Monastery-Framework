@@ -158,6 +158,58 @@ inst.height = appHeight - wWidth - (10 * 3);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///CREATE CONTENT PANEL
+var offset = 10;
+
+var borderOffset = 10;
+var elementWidth = 65;
+var elementHeight = 40;
+var elementOffset = 5;
+var scrollWidth = 15;
+
+var content = instance_create(x+width+offset, y, objGUIContentPanelObject);
+content.borderOffset = borderOffset;
+content.elementOffset = elementOffset;
+content.scrollWidth = scrollWidth;
+content.elementWidth = elementWidth;
+content.elementHeight = elementHeight;
+
+content.width = (borderOffset*2)+scrollWidth+(5*(elementWidth+elementOffset))-elementOffset;
+content.height = (borderOffset*2)+(11*(elementHeight+elementOffset))-elementOffset;
+
+var btn;
+var text = "";
+for (var i=0; i&lt;100; i++){
+    text = "B" + string(i);
+    btn = gui_create_button(-100, -100, elementWidth, elementHeight, text, alert, text);
+    
+    ds_list_add(content.lstContent, btn);
+}
+
+
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

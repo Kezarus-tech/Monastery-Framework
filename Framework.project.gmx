@@ -92,6 +92,7 @@
           <object>objects\objGUISlider</object>
           <object>objects\objGUIDialogBox</object>
           <object>objects\objGUIContentPanelText</object>
+          <object>objects\objGUIContentPanelObject</object>
         </objects>
         <objects name="Objects">
           <object>objects\objInitializer</object>
