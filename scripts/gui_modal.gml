@@ -1,4 +1,4 @@
-/// @description gui_modal( text, options, event_perform type, event_perform number )
+/// gui_modal( text, options, event_perform type, event_perform number )
 
 /// @param text
 /// @param options - separeted by | ex: "Ok|Undo|Cancel"

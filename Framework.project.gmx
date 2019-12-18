@@ -56,16 +56,16 @@
           <script>scripts\draw_nineslice_tiled.gml</script>
           <script>scripts\gui_is_mouse_over.gml</script>
           <script>scripts\gui_setup_collision.gml</script>
-          <script>scripts\gui_modal.gml</script>
           <script>scripts\gui_create_button.gml</script>
           <script>scripts\gui_create_slider.gml</script>
+          <script>scripts\gui_modal.gml</script>
           <script>scripts\gui_mouse_x.gml</script>
           <script>scripts\gui_mouse_y.gml</script>
         </scripts>
         <scripts name="Util">
           <script>scripts\alert.gml</script>
           <script>scripts\chance.gml</script>
-          <script>scripts\draw_nineslice.gml</script>
+          <script>scripts\draw_nineslice_streched.gml</script>
           <script>scripts\draw_set_font_ext.gml</script>
           <script>scripts\draw_text_outline.gml</script>
           <script>scripts\screen_shake.gml</script>
@@ -103,6 +103,11 @@
           <object>objects\objShake</object>
           <object>objects\objMouseGui</object>
         </objects>
+        <objects name="OptionsMenu">
+          <object>objects\pnlOptions</object>
+          <object>objects\sldMusic</object>
+          <object>objects\sldSound</object>
+        </objects>
       </objects>
       <objects name="Demo">
         <objects name="MainMenu">
@@ -129,11 +134,6 @@
           <object>objects\objOrbital</object>
           <object>objects\objTweek9Slices</object>
         </objects>
-        <objects name="Options">
-          <object>objects\pnlOptions</object>
-          <object>objects\sldMusic</object>
-          <object>objects\sldSound</object>
-        </objects>
         <objects name="Shake">
           <object>objects\pnlShake</object>
           <object>objects\btnShake</object>
@@ -143,6 +143,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\roomInitializer</room>
+    <room>rooms\roomOptions</room>
     <rooms name="Framework">
       <rooms name="Demo">
         <room>rooms\roomMainFramework</room>
@@ -150,7 +151,6 @@
         <room>rooms\roomModals</room>
         <room>rooms\roomShake</room>
         <room>rooms\roomEasyGUI</room>
-        <room>rooms\roomOptions</room>
       </rooms>
     </rooms>
   </rooms>

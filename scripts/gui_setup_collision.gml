@@ -2,7 +2,7 @@
 
 // REFRAME THE COLISION BOX
 
-// Called on buttons on Alarm[0] event 
+// Called on gui elements on Alarm[0] event 
 // to setup the collision mask for the UI
 
 if( detectorPosSize != 

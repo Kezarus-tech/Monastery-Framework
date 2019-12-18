@@ -2,9 +2,9 @@
 
 /// @param x
 /// @param y
-/// @param text - the text that will be writen
-/// @param separation - The distance in pixels between lines of text as if the string was being drawn.
-/// @param width - The maximum width (in pixels) of the string before a line break as if the string was bring drawn.
+/// @param text - the text that will be drawn
+/// @param separation - the distance in pixels between lines of text as if the string was being drawn.
+/// @param width - the maximum width (in pixels) of the string before a line break as if the string was bring drawn.
 /// @param outline_color
 /// @param scale
 /// @param angle

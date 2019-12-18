@@ -1,4 +1,4 @@
-///gui_create_button( x, y, width, height, text, function, function arg0, function arg1, function arg2, function arg3, function arg4, function arg5 )
+///gui_create_button( x, y, width, height, text, function, [function arg0], [function arg1], [function arg2], [function arg3], [function arg4], [function arg5] )
 
 // returns the object ID
 
