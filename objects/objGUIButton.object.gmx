@@ -41,10 +41,10 @@
             <kind>1</kind>
             <string>///CUSTOMIZEABLE VARIABLES
 
-text = "Button Text"; //displayed text
-icon = -1; //sprite index
 width = 200;
 height = 50;
+text = "Button Text"; //displayed text
+icon = -1; //sprite index
 
 enabled = true;
 stayPressed = false;

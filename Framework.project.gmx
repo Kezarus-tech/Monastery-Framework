@@ -86,9 +86,9 @@
           <object>objects\objGUI</object>
           <object>objects\objGUIPanel</object>
           <object>objects\objGUIButton</object>
-          <object>objects\objGUIInputText</object>
           <object>objects\objGUICheckbox</object>
           <object>objects\objGUIRadiobutton</object>
+          <object>objects\objGUIInputText</object>
           <object>objects\objGUISlider</object>
           <object>objects\objGUIDialogBox</object>
           <object>objects\objGUIContentPanelText</object>

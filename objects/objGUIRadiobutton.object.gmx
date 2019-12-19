@@ -45,7 +45,6 @@ group = "Group";
 icon = sprIconCircle; //sprite index
 
 guiSprite = sprCheckButton;
-guiSpritePressed = sprCheckButton;
 
 enabled = true;
 textOffset = 5;
@@ -72,6 +71,8 @@ textOffset = 5;
             <string>///INTERNAL VARS
 width = sprite_width;
 height = sprite_height;
+
+guiSpritePressed = guiSprite;
 
 stayPressed = true;
 toggled = false;

@@ -40,26 +40,20 @@
           <argument>
             <kind>1</kind>
             <string>///CUSTOMIZEABLE VARIABLES
-
-text = "Button Text"; //displayed text
-textTimer = 3;
-alarm[1] = 1;
-
 width = 200;
 height = 50;
 
 guiSprite = sprPanel;
 depth = 100; //same level as panels
-
 origin = GUI_TOPLEFT; // GUI_TOPLEFT or GUI_CENTER
 
 fontType = fntStandard;
-fontScale = 1;
 fontColor = c_yellow;
 textOffset = 10;
 
+text = "Button Text"; //displayed text
+textTimer = 3;
 dontNeedToBeOnFocus = false; //if set true, will capture any click on the screen and any keystrok
-
 sound = sndTypewriter;
 </string>
           </argument>
@@ -87,7 +81,9 @@ textIndex = 0;
 waitForAnykey = false;
 textTimerNow = 1;
 
+fontScale = 1;
 
+alarm[1] = 1;
 
 </string>
           </argument>
