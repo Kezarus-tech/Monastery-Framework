@@ -43,7 +43,7 @@
 scrollBarH = noone;
 scrollBarV = noone;
 
-guiSprite = sprInputText;
+guiSprite = sprNineSlices;
 </string>
           </argument>
         </arguments>

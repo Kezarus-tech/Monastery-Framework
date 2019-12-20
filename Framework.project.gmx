@@ -26,6 +26,7 @@
         </sprites>
         <sprite>sprites\sprPanel</sprite>
         <sprite>sprites\sprButton</sprite>
+        <sprite>sprites\sprNineSlices</sprite>
         <sprite>sprites\sprButtonPressed</sprite>
         <sprite>sprites\sprInputText</sprite>
         <sprite>sprites\sprCheckButton</sprite>
