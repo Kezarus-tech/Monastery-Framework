@@ -10,7 +10,7 @@ inst.text = argument[4];
 inst.targetScript = argument[5];
 
 for (var i=6; i<argument_count; i++){
-    inst.targetScriptArgs[6-i] = argument[i];
+    inst.targetScriptArgs[i-6] = argument[i];
 };
 
 
